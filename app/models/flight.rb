@@ -4,8 +4,6 @@ class Flight < ActiveRecord::Base
   has_many :bookings
   has_many :passengers, through: :bookings
 
-  validates :origin, :destination, presence: true, on: :search
-
   def self.search(origin, destination)
     Flight.where(origin: origin, destination: destination)
   end
