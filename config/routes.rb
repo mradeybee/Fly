@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   #   get 'products/:id' => 'catalog#view'
 
  get 'auth/:provider/callback', to: "sessions#create"
- delete 'sign_out', to: "sessions#destroy", as: "sign_out"
+ get 'sign_out', to: "sessions#destroy", as: "sign_out"
 
   # Example resource route with options:
   #   resources :products do
