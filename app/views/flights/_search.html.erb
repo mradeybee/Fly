@@ -1,0 +1,28 @@
+<%= form_tag('flight_search', method: :post, class: "form-inline") do %>
+  <div class = "alls">
+    <h2 class = "text_primary">Search Flight <i class="fa fa-plane fa-1x"></i></h2>
+
+    <div class="form-group">
+      <%= collection_select :flight, :origin_id, Airport.all, :id, :name, {include_blank: 'From Where?'}, {class: 'form-control  boxx'}%>
+    </div>
+
+    <div class="form-group">
+      <%= collection_select :flight, :destination_id, Airport.all, :id, :name, {include_blank: 'To Where?'}, {class: 'form-control  boxx '}%>
+    </div>
+
+    <div class="form-group">
+       <%= text_field :flight, :no_of_passengers, id: 'no_of_passengers', class: 'form-control boxx', placeholder: 'Number of Passengers'%>
+    </div>
+
+    <div class=" form-group input-daterange" data-provide = 'datepicker'>
+
+      <%= text_field :flight, :departure_date,  id: 'departure_date', placeholder: "Departure Date", class: 'form-control boxx'%>
+    </div>
+
+    <%= submit_tag("Search", :name => nil,class: 'btn btn-info btn-md active boxx')%>
+  </div>
+<% end %> 
+
+<% if @search %>
+  <%= render "flight/search_result" %>
+<% end %>

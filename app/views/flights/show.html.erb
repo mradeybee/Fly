@@ -1,0 +1,37 @@
+<% @flights.each do |flight| %>
+   <li class="list-group-item">
+      <div class="flight_table">
+        <div class="row">
+          <div class="col-md-2 text-center vertical-align search_airline">
+            <div class="">
+              <div class="radio-danger">
+                <%= radio_button_tag(:flights_id, flights.id) %>
+              </div>
+                <%= label_tag "flights_id_#{flights.id}", flights.airline %>
+            </div>
+          </div>
+            <div class="">
+            <div class="col-md-3">
+              <div class="">
+                <i class="fa fa-plane"></i>
+                <h5><%= flights.take_off_date.strftime("%-l:%M%P") %></h5>
+                <p class=""><%=flights.take_off_date  %></p>
+                  <%= flights.origin.name %></p>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <i class="fa fa-plane fa-flip-vertical"></i>
+                <h5><%= flights.landing_date.strftime("%-l:%M%P") %></h5>
+                <p class=""><%= flights.landing_date %></p>
+                  <%= flights.destination.name %></p>
+              </div>
+            </div>
+          <div class="col-md-3 search_price">
+            <span class=""><%= number_to_currency flights.price, delimiter: '.' %></span>
+            <span>/person</span>
+            <p></p>
+           </div>
+        </div>
+       </div>
+       </li>
+ <% end %>

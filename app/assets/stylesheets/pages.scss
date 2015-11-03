@@ -1,0 +1,67 @@
+// Place all the styles related to the pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.pages{
+  margin-top: 70px;
+  position: relative;
+} 
+.navi{
+  background-color: #000;
+  border-bottom: 10px solid #2E9AFE;
+  padding-left: 25px;
+  padding-right: 25px;
+
+}
+.logo{
+  font-size: 30px;
+  color: #fff;
+  font-family: sans-serif;
+}
+.home_search{
+  position: absolute;
+  top: 350px;
+  background: linear-gradient(rgba(0,0,0,.8) 50%, rgba(0,0,0,.8) 70%);
+  margin-left: 15px;  
+  margin-right: 10px;
+  padding-left: 40px;
+  padding-bottom: 20px;
+  padding-right: 40px;
+  width: auto;
+}
+
+.boxx{
+  height: 40px;
+}
+
+.search_txt{
+  color: #fff;
+}
+
+.footer{
+  padding: 20px;
+  background-color: #000;
+  color: #fff;
+  margin-bottom: -10px;
+  position: relative;
+}
+
+.flight_search{
+  margin: 10px;
+}
+
+.flight_table{
+  margin-left: 0px;
+}
+
+.search_airline{
+  margin-top: 20px;
+}
+.search_price{
+  margin-top: 40px;
+}
+.all_flight{
+  margin:5px 50px ;
+}
+.alt{
+    position:relative;
+}
