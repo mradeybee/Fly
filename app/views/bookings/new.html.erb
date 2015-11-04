@@ -35,7 +35,7 @@
 									  <div class="form-group">
 									    <%= p.text_field :name, class: "form-control", placeholder: "Passenger Name" %>
 									     <%= hidden_field_tag(:flight_id, params["flight_id"])%>
-									     <%= hidden_field_tag(:user_id, current_user.id)%>
+									     <%= hidden_field_tag(:user_id, current_user.id) if current_user %>
 									     <%= hidden_field_tag(:no_of_passengers, params["no_of_passengers"])%>
 									  </div>
 									  <div class="form-group">
