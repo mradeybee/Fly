@@ -7,42 +7,65 @@
 
     <div class="panel-body" align ="center">  
       <% @flight = Flight.all.paginate(:page => params[:page], :per_page => 10) %>
-      <% @flight.each do |flight| %>
-        <li class="list-group-item" >
-          <div class="flight_table">
-            <div class="row">
+       
+        <% @flight.each do |flights| %>
+        <%= form_tag("/bookings/new", method: :get) do%> 
+          <li class="list-group-item">
+            <div class="flight_table">
+              <div class="row">
+                
                 <div class="col-md-2 text-center vertical-align search_airline">
                   <div class="">
                     <div class="radio-danger">
-                      <%= radio_button_tag(:flight_id, flight.id) %>
+                      <%= hidden_field_tag(:no_of_passengers, 1) %>
+                      <%= radio_button_tag(:flight_id, flights.id) %>
+                      <%= hidden_field_tag(:flight_id, flights.id) %>
                     </div>
-                  <%= label_tag "flight_id_#{flight.id}", flight.airline %>
+
+                    <%= label_tag "flights_id_#{flights.id}", flights.airline %>
+                    <%= hidden_field_tag(:airline, flights.airline) %>
                   </div>
                 </div>
-          <div class="">
-                <div class="col-md-3">
-                  <div class="">
-                    <i class="fa fa-plane"></i>
-                    <h5><%= flight.departure_date.strftime("%-l:%M%P") %></h5>
-                    <p class=""><%=flight.departure_date.strftime("%d - %m - %Y")%></p>
-                    <%= flight.origin.name %></p>
+
+                <div class="">
+                  <div class="col-md-3">
+                    <div class="">
+                      <i class="fa fa-plane"></i>
+
+                      <h5><%= label_tag "#{flights.departure_date.strftime('%-l:%M%P')}" %></h5><%= hidden_field_tag(:departure_time, flights.departure_date.strftime("%-l:%M%P")) %>
+
+                      <p class=""><%= flights.departure_date.strftime("%d - %m - %Y")%></p>
+                      <%= hidden_field_tag(:departure_date, flights.departure_date.strftime("%d - %m - %Y")) %>
+
+                      <%= flights.origin.name %>
+                      <%= hidden_field_tag(:origin, flights.origin.name) %></p>
+
+                    </div>
+                  </div>
+
+                  <div class="col-md-3">
+                    <i class="fa fa-plane fa-flip-vertical"></i>
+                    <h5><%= flights.arrival_date.strftime("%-l:%M%P") %></h5>
+                    <%= hidden_field_tag(:arrival_time, flights.arrival_date.strftime("%-l:%M%P")) %>
+                    <p class=""><%= flights.arrival_date.strftime("%d - %m - %Y")%></p>
+                    <%= hidden_field_tag(:arrival_date, flights.arrival_date.strftime("%d - %m - %Y")) %>
+
+                    <%= flights.destination.name %>
+                   <%= hidden_field_tag(:destination, flights.destination.name) %></p>
                   </div>
                 </div>
-                <div class="col-md-3">
-                  <i class="fa fa-plane fa-flip-vertical"></i>
-                  <h5><%= flight.arrival_date.strftime("%-l:%M%P") %></h5>
-                  <p class=""><%= flight.arrival_date.strftime("%d - %m - %Y")%></p>
-                  <%= flight.destination.name %></p>
-                </div>
-              </div>
-              <div class="col-md-3 search_price">
-                <span class=""><%= number_to_currency flight.price, delimiter: '.' %></span>
-                <span>/person</span><p>
-                 <p><%= link_to 'Select', 'booking_new', class: "btn btn-primary", id: "btn_#{flight.id}" %></p>
+
+                <div class="col-md-3 search_price">
+                  <span class=""><%= number_to_currency flights.price, delimiter: '.' %></span>
+                   <%= hidden_field_tag(:price, flights.price, delimiter: '.') %>
+                  <span>/person</span>
+                  <p><%= submit_tag 'Select', class: "btn btn-primary" %></p>
+                </div> 
+
               </div>
             </div>
-          </div>
-        </li>
+          </li>
+        <% end %>
       <% end %>
     </div>
       <div align = "center">

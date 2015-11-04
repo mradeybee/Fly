@@ -3,8 +3,7 @@ class BookingsController < ApplicationController
     
   end
   def new
-    @book_info = booking_params 
-  	@booking = Booking.new
+   	@booking = Booking.new
     params[:no_of_passengers].to_i.times{@booking.passengers.build}
   end
  def create
@@ -29,8 +28,6 @@ class BookingsController < ApplicationController
 	  def booking_params
 	    params.permit( :airline, :origin, :destination, :departure_date, :departure_time, 
         :arrival_date, :arrival_time, :flight_id, :price, :no_of_passengers,
-        passenger_attributes:[:booking_id, :name, :email])
+        passenger_attributes:[:id,:booking_id, :name, :email])
 	  end
-
-    
 end

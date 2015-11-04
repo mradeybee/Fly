@@ -9,9 +9,15 @@
 				    <h3 class="panel-title">Flight Details</h3>
 				  </div>
 				  <div class="panel-body">
-				  	<% for books in @book_info do %>
-			   			<p><%= books.join("," + " ").upcase.gsub("_", " ") %></p>
-			   					<% end %>
+				  	<p>Airline: <%=  params["airline"] %></p>
+				  	<p>Origin: <%=  params["origin"] %></p>
+				  	<p>Destination: <%=  params["destination"] %></p>
+				  	<p>Take Off Time: <%=  params["departure_time"] %></p>
+				  	<p>Take Off Date: <%=  params["departure_date"] %></p>
+				  	<p>Landing Time: <%=  params["arrival_time"] %></p>
+				  	<p>Landing Date: <%=  params["arrival_date"] %>
+				  	<h2 class="pull-right	"><%=  params["price"] %></h2>
+				  	</p>
 					   </ul>
 				  </div>
 				</div>
@@ -26,7 +32,6 @@
 						<form class="form-inline">
 							<%= form_for @booking do |b| %>
     						<%= b.fields_for :passengers do |p| %>
-	    						<div class = "duplicatable_nested_form">
 									  <div class="form-group">
 									    <%= p.text_field :name, class: "form-control", placeholder: "Passenger Name" %>
 									  </div>
@@ -36,12 +41,13 @@
 									  </div>
 									  <button type="button" class="btn btn-danger pull-right">Delete</button>
 									  <hr>
-									</div>
 								<% end %>
-											<br>
-						    <%= link_to 'Add Another passenger', '', :class => 'duplicate_nested_form btn btn-primary' %>
+											<br>	
+						    <%= link_to 'Add Another passenger', '', :class => 'duplicate_nested_form btn btn-primary form-control' %>  
 								</div>
-				  			<div class="panel-footer"><%= submit_tag "Book Now", class: "btn btn-primary" %></div>
+				  			<div class="panel-footer"><%= submit_tag "Book Now", class: "btn btn-primary" %>
+
+				  			</div>
 				  		<% end %>
 			</div>
 			</div>

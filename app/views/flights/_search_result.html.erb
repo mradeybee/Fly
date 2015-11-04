@@ -18,7 +18,7 @@
                               <div class="col-md-2 text-center vertical-align search_airline">
                                 <div class="">
                                   <div class="radio-danger">
-                                    <%= hidden_field_tag(:no_of_passengers,  1 ) %>
+                                    <%= hidden_field_tag(:no_of_passengers,  params[:flight][:passengers]) %>
                                     <%= radio_button_tag(:flight_id, flights.id) %>
                                     <%= hidden_field_tag(:flight_id, flights.id) %>
                                   </div>
