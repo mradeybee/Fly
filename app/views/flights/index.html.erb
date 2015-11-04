@@ -38,7 +38,7 @@
               <div class="col-md-3 search_price">
                 <span class=""><%= number_to_currency flight.price, delimiter: '.' %></span>
                 <span>/person</span><p>
-                 <p><%= link_to 'Select', new_booking_path(flight), class: "btn btn-primary", id: "btn_#{flight.id}" %></p>
+                 <p><%= link_to 'Select', 'booking_new', class: "btn btn-primary", id: "btn_#{flight.id}" %></p>
               </div>
             </div>
           </div>

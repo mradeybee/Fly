@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   root 'pages#index'
   resources :flights
   resources :bookings
+  #get 'booking_new', to: 'bookings#new', as: 'booking_new'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

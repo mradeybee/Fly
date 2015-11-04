@@ -1,7 +1,6 @@
 class FlightsController < ApplicationController
 	
 	def index
-    
   end
 	
 	def search
@@ -18,6 +17,7 @@ class FlightsController < ApplicationController
 
 	private
     def search_params
-      params.require(:flight).permit(:origin, :destination, :departure_date, :flight_attributes[:origin_id, :destination_id, :departure_date])
+      params.require(:flight).permit(:origin, :destination, :departure_date, :no_of_passenegers, 
+      	:flight_attributes[:origin_id, :destination_id, :departure_date, :no_of_passenegers])
     end
 end
