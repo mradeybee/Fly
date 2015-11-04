@@ -16,7 +16,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li><a href="/flights" class = "btn btn-link">All Flights</a></li>
         <% if current_user %>
-          <li class = "btn btn-link">Logged in as: <%= current_user.name %></li>
+          <li class = "btn btn-link"><%= current_user.name.slice!(0...7) %></li>
           <li > <%= link_to "Sign Out", sign_out_path, method: :delete, class: "btn btn-link" %></li>
         <% else %>
           <li><a data-toggle="modal" data-target=".bs-example-modal-sm" class = "btn btn-link">Login</a></li>

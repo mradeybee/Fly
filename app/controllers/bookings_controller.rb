@@ -8,10 +8,9 @@ class BookingsController < ApplicationController
   end
  def create
     @booking = Booking.new(booking_params)
-
     respond_to do |format|
       if @booking.save
-        format.html { redirect_to @booking, notice: 'Booking was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Booking was successfully created.' }
         format.json { render :show, status: :created, location: @booking }
       else
         format.html { render :new }
@@ -27,7 +26,7 @@ class BookingsController < ApplicationController
 	  
 	  def booking_params
 	    params.permit( :airline, :origin, :destination, :departure_date, :departure_time, 
-        :arrival_date, :arrival_time, :flight_id, :price, :no_of_passengers,
+        :arrival_date, :arrival_time, :flight_id, :price, :no_of_passengers, :user_id,
         passenger_attributes:[:id,:booking_id, :name, :email])
 	  end
 end
