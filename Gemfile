@@ -18,6 +18,9 @@ gem 'will_paginate', '~> 3.0.6'
 gem 'will_paginate-bootstrap'
 gem 'therubyracer'
 gem 'execjs'
+gem 'cocoon'
+gem 'puma'
+
 # gem 'unicorn'
 # gem 'capistrano-rails', group: :development
 group :development, :test do
@@ -28,6 +31,7 @@ group :development do
   gem 'web-console', '~> 2.0'
   gem 'sqlite3'
   gem 'spring'
+  gem 'letter_opener'
 end
 group :deployment do
   gem 'pg'

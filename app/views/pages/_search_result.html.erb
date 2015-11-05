@@ -15,8 +15,6 @@
                     <div class="">
                       <div class="radio-danger">
                         <%= hidden_field_tag(:no_of_passengers, params[:flight][:passengers] ) %>
-
-
                         <%= radio_button_tag(:flight_id, flights.id) %>
                         <%= hidden_field_tag(:flight_id, flights.id) %>
                       </div>
@@ -55,7 +53,7 @@
                   </div>
 
                   <div class="col-md-3 search_price">
-                    <span class=""><%= number_to_currency flights.price, delimiter: '.' %></span>
+                    <span class=""><%= (number_to_currency flights.price, delimiter: '.').to_i  %></span>
                      <%= hidden_field_tag(:price, flights.price, delimiter: '.') %>
                     <span>/person</span>
                     <p><%= submit_tag 'Select', class: "btn btn-primary" %></p>

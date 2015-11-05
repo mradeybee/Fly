@@ -11,8 +11,12 @@ class FlightsController < ApplicationController
 
   def flight_search
     parameter = params[:flight]
-    @flight = Flight.search(parameter[:origin_id], parameter[:destination_id])
-    render 'flights/_search_result'    
+    if parameter[:origin] == parameter[:destination]
+     redirect notice: "I am sure you dont want to fly to where you are"
+    else
+      @flight = Flight.search(parameter[:origin_id], parameter[:destination_id])
+      render 'flights/_search_result'
+    end    
   end
 
 	private
