@@ -1,4 +1,5 @@
 Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :facebook, 'FACEBOOK_APP_ID', 'FACEBOOK_APP_KEY', 
-  scope: "public_profile, email", info_fields: "id, name, link, email", display: "popup"
+
+  provider :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_APP_KEY'],
+ :scope => 'email', :info_fields => 'name, email'
 end

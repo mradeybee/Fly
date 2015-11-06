@@ -10,9 +10,6 @@
       <%= collection_select :flight, :destination_id, Airport.all, :id, :name, {include_blank: 'To Where?'}, {class: 'form-control  boxx '}%>
     </div>
 
-    <div class="form-group">
-       <%= text_field :flight, :passengers, id: 'no_of_passengers', class: 'form-control boxx', placeholder: 'Number of Passengers'%>
-    </div>
 
     <div class=" form-group input-daterange" data-provide = 'datepicker'>
 

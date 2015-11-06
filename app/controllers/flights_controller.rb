@@ -24,6 +24,4 @@ class FlightsController < ApplicationController
       params.require(:flight).permit(:origin, :destination, :departure_date, :no_of_passenegers, 
       	:flight_attributes[:origin_id, :destination_id, :departure_date, :no_of_passenegers])
     end
-
-  
 end

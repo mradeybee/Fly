@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   #get 'booking_new', to: 'bookings#new', as: 'booking_new'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
-
+  get 'booking_confirmed', to: 'bookings#booking_confirmed', as: 'booking_confirmed'
  get 'auth/:provider/callback', to: "sessions#create"
  delete 'sign_out', to: "sessions#destroy", as: "sign_out"
 

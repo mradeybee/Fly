@@ -1,17 +1,16 @@
 class BookingsController < ApplicationController
+
   def index
-    
   end
   def new
    	@booking = Booking.new
-    params[:no_of_passengers].to_i.times{@booking.passengers.build}
+    # params[:no_of_passengers].to_i.times{@booking.passengers.build}
   end
  def create
     @booking = Booking.new(booking_params)
     respond_to do |format|
       if @booking.save
-          FlyMail.welcome(current_user).deliver
-        format.html { redirect_to root_path, notice: 'Booking was successfully created.' }
+        format.html { redirect_to '/booking_confirmed', notice: 'Booking was successfully created.' }
         format.json { render :show, status: :created, location: @booking }
       else
         format.html { render :new }

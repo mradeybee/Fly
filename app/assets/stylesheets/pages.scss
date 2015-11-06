@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .pages{
-  margin-top: 70px;
+  margin-top: 80px;
   position: relative;
 } 
 .navi{
@@ -22,7 +22,8 @@
   top: 350px;
   background: linear-gradient(rgba(0,0,0,.8) 50%, rgba(0,0,0,.8) 70%);
   margin-left: 15px;  
-  margin-right: 10px;
+  margin-right: 15px;
+  left: 70px;  
   padding-left: 40px;
   padding-bottom: 20px;
   padding-right: 40px;
@@ -45,6 +46,10 @@
   position: relative;
 }
 
+.fix{
+  position: relative;
+}
+
 .flight_search{
   margin: 10px;
 }
@@ -63,9 +68,14 @@
   margin:5px 50px ;
 }
 .alt{
-    position:relative;
+    position:absolute;
+    right:0;
+    margin-top: 0;
 }
 .booking_list{
   list-style-type: none;
   margin-left: 0;
+}
+tell{
+  color: #fff;
 }

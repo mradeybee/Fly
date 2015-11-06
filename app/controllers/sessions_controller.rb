@@ -4,12 +4,14 @@ class SessionsController < ApplicationController
 		session[:omniauth] = auth.expect('extra')
 		user = User.sign_in_from_omniauth(auth)
 		session[:user_id] = user.id
-		redirect_to root_path, notice: "Signed In"
+		flash[:notice] = "Signed In"
+		redirect_to :back
 	end
 
 	def destroy
 		session[:user_id] = nil
 		session[:omniauth] = nil
-		redirect_to root_path, notice: "Signed Out"
+		flash[:notice] = "Signed Out"
+		redirect_to root_path
 	end
 end
