@@ -14,7 +14,7 @@ gem "omniauth-google-oauth2"
 gem "figaro", '~> 1.0.0' 
 gem 'bootstrap-datepicker-rails'
 gem 'will_paginate', '~> 3.0.6'
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 gem 'will_paginate-bootstrap'
 gem 'paypal-express'
 gem 'activemerchant'
