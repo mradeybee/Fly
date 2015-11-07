@@ -1,11 +1,7 @@
-<div class="pages">
   <div class ="container">
     <div class = "row">
         <div class="col-md-10"> 
-          <div class="panel panel-primary flight_search">
-            <div class="panel-heading">
-              <h3 class="panel-title">Flight Search Results</h3>
-            </div>
+          <div class=" flight_search">
             <div class="panel-body">
                 <% if @flight %>
                   <% if !@flight.empty? %>
@@ -14,7 +10,6 @@
                         <li class="list-group-item">
                           <div class="flight_table">
                             <div class="row">
-                              
                               <div class="col-md-2 text-center vertical-align search_airline">
                                 <div class="">
                                   <div class="radio-danger">
@@ -66,6 +61,7 @@
                             </div>
                           </div>
                         </li>
+                        <hr>
                       <% end %>
                     <% end %>
                   <% else %>
@@ -78,4 +74,3 @@
         </div>
     </div>
   </div>
-</div>

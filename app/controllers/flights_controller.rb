@@ -6,16 +6,32 @@ class FlightsController < ApplicationController
 	def search
 		parameter = params[:flight]
 		@search = Flight.search(parameter[:origin_id], parameter[:destination_id])
-		render 'pages/index' 
-	end
+    respond_to do |format|
+      if !@search.empty?
+        format.html{render 'pages/index' }
+        format.json { render :show, status: :created, location: @search }
+        format.js {}
+      else
+        format.html { render :index }
+        format.json { render json: @search.errors, status: :unprocessable_entity }
+        format.js {}
+      end
+    end    
+  	end
 
   def flight_search
     parameter = params[:flight]
-    if parameter[:origin] == parameter[:destination]
-     redirect notice: "I am sure you dont want to fly to where you are"
-    else
-      @flight = Flight.search(parameter[:origin_id], parameter[:destination_id])
-      render 'flights/_search_result'
+    @flight = Flight.search(parameter[:origin_id], parameter[:destination_id])
+    respond_to do |format|
+      if !@flight.empty?
+        format.html{ render 'flights/_search_result'}
+        format.json { render :show, status: :created, location: @flight }
+        format.js {}
+      else
+        format.html { render :index }
+        format.json { render json: @flight.errors, status: :unprocessable_entity }
+        format.js {}
+      end
     end    
   end
 

@@ -1,0 +1,10 @@
+$("#search_result").prepend('<%= j render "pages/search_result" %>');
+$(".origin").val("From Where?")
+$(".destination").val("To Where?");
+$(".date").val('Departure Date');
+$("#search_result").hide().fadeIn(1000);
+$("#search_result").ready(function(){
+    $("html, body").delay(2).animate({
+        scrollTop: $('#search_result').offset().top 
+    }, 2000);
+});
