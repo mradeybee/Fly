@@ -1,6 +1,12 @@
 class FlightsController < ApplicationController
 	
 	def index
+ 
+    respond_to do |format|
+      format.html{render 'flights/index' } 
+      format.json { render :show, status: :created, location: @flight }
+      format.js {}
+    end
   end
 	
 	def search

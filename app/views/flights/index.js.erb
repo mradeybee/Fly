@@ -1,0 +1,6 @@
+$("all_flights").hide().fadeIn(1000);
+$("all_flights").ready(function(){
+    $("html, body").delay(200).animate({
+        scrollTop: $('all_flights').offset().top 
+    }, 2000);
+});

@@ -1,13 +1,13 @@
-  <div class ="container">
+  <div class ="container" >
     <div class = "row">
-        <div class="col-md-10"> 
+        <div class="col-md-12 "> 
           <div class=" flight_search">
-            <div class="panel-body">
+            <div class="panel-body" >
                 <% if @flight %>
                   <% if !@flight.empty? %>
                     <% for flights in @flight %>
                       <%= form_tag("/bookings/new", method: :get) do%> 
-                        <li class="list-group-item">
+                        <li class="list-group-item" align = "center">
                           <div class="flight_table">
                             <div class="row">
                               <div class="col-md-2 text-center vertical-align search_airline">
