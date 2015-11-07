@@ -4,6 +4,7 @@
   </div>
   <div class= "container">
     <div class= "row  myFlights">
+    <div class = "col-md-12">
     <div class="panel-body" align ="center">  
       <% @flight = Flight.all.paginate(:page => params[:page], :per_page => 10) %>
         <% @flight.each do |flights| %>
@@ -70,6 +71,7 @@
       <div align = "center">
         <%= will_paginate @flight, renderer: BootstrapPagination::Rails  %>
       </div>
+    </div>
   </div>
 </div>
 </div>
