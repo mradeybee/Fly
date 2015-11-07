@@ -1,0 +1,12 @@
+$(".myFlights").remove() 
+$("#flight-search").prepend('<%= j render "flights/search_result" %>');
+$(".origin").val("From Where?")
+$(".destination").val("To Where?");
+$(".date").val('Departure Date');
+
+$("#flight-search").hide().fadeIn(1000);
+$("flight-search").ready(function(){
+    $("html, body").delay(2).animate({
+        scrollTop: $('flight-search').offset().top 
+    }, 2000);
+});

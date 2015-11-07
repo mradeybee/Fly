@@ -23,6 +23,11 @@ GEM
     activejob (4.2.4)
       activesupport (= 4.2.4)
       globalid (>= 0.3.0)
+    activemerchant (1.54.0)
+      activesupport (>= 3.2.14, < 5.0.0)
+      builder (>= 2.1.2, < 4.0.0)
+      i18n (>= 0.6.9)
+      nokogiri (~> 1.4)
     activemodel (4.2.4)
       activesupport (= 4.2.4)
       builder (~> 3.1)
@@ -38,6 +43,7 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.3.8)
     arel (6.0.3)
+    attr_required (1.0.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     bootstrap-datepicker-rails (1.4.0)
@@ -54,6 +60,8 @@ GEM
       execjs
     coffee-script-source (1.9.1.1)
     debug_inspector (0.0.2)
+    domain_name (0.5.25)
+      unf (>= 0.0.5, < 1.0.0)
     erubis (2.7.0)
     execjs (2.6.0)
     faker (1.5.0)
@@ -65,6 +73,8 @@ GEM
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     hashie (3.4.2)
+    http-cookie (1.0.2)
+      domain_name (~> 0.5)
     i18n (0.7.0)
     jbuilder (2.3.2)
       activesupport (>= 3.0.0, < 5)
@@ -91,6 +101,7 @@ GEM
     multi_json (1.11.2)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
+    netrc (0.11.0)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     oauth2 (1.0.0)
@@ -110,6 +121,10 @@ GEM
     omniauth-oauth2 (1.3.1)
       oauth2 (~> 1.0)
       omniauth (~> 1.2)
+    paypal-express (0.8.1)
+      activesupport (>= 2.3)
+      attr_required (>= 0.0.5)
+      rest-client
     pg (0.18.3)
     pry (0.10.2)
       coderay (~> 1.1.0)
@@ -153,6 +168,10 @@ GEM
     ref (2.0.0)
     responders (2.1.0)
       railties (>= 4.2.0, < 5)
+    rest-client (1.8.0)
+      http-cookie (>= 1.0.2, < 2.0)
+      mime-types (>= 1.16, < 3.0)
+      netrc (~> 0.7)
     sass (3.4.19)
     sass-rails (5.0.4)
       railties (>= 4.0.0, < 5.0)
@@ -185,6 +204,9 @@ GEM
     uglifier (2.7.2)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.1)
     web-console (2.2.1)
       activemodel (>= 4.0)
       binding_of_caller (>= 0.7.2)
@@ -198,6 +220,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activemerchant
   bootstrap-datepicker-rails
   byebug
   cocoon
@@ -209,6 +232,7 @@ DEPENDENCIES
   letter_opener
   omniauth-facebook
   omniauth-google-oauth2
+  paypal-express
   pg
   pry
   puma
@@ -225,6 +249,3 @@ DEPENDENCIES
   web-console (~> 2.0)
   will_paginate (~> 3.0.6)
   will_paginate-bootstrap
-
-BUNDLED WITH
-   1.10.6

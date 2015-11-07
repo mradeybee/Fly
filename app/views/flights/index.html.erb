@@ -3,7 +3,7 @@
     <%= render "flights/search" %>
   </div>
   <div class= "container">
-    <div class= "row">
+    <div class= "row  myFlights">
     <div class="panel-body" align ="center">  
       <% @flight = Flight.all.paginate(:page => params[:page], :per_page => 10) %>
         <% @flight.each do |flights| %>
@@ -63,6 +63,7 @@
               </div>
             </div>
           </li>
+          <hr>
         <% end %>
       <% end %>
     </div>

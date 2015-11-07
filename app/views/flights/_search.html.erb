@@ -1,13 +1,13 @@
-<%= form_tag('flight_search', method: :post, class: "form-inline") do %>
+<%= form_tag('flight_search', method: :post, class: "form-inline", remote: true) do %>
   <div class = "alls">
     <h2 class = "text-primary">Search Flight <i class="fa fa-plane fa-1x text-info"></i></h2>
 
     <div class="form-group">
-      <%= collection_select :flight, :origin_id, Airport.all, :id, :name, {include_blank: 'From Where?'}, {class: 'form-control  boxx'}%>
+      <%= collection_select :flight, :origin_id, Airport.all, :id, :name, {include_blank: 'From Where?'}, {class: 'form-control origin boxx'}%>
     </div>
 
     <div class="form-group">
-      <%= collection_select :flight, :destination_id, Airport.all, :id, :name, {include_blank: 'To Where?'}, {class: 'form-control  boxx '}%>
+      <%= collection_select :flight, :destination_id, Airport.all, :id, :name, {include_blank: 'To Where?'}, {class: 'form-control destination  boxx '}%>
     </div>
 
 
@@ -20,6 +20,7 @@
   </div>
 <% end %> 
 
-<% if @search %>
-  <%= render "flight/search_result" %>
-<% end %>
+<div id ="flight-search"></div>
+  <% if @search %>
+    <%= render "flight/search_result" %>
+  <% end %>

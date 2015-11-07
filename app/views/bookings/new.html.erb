@@ -29,12 +29,12 @@
 				    <h3 class="panel-title">Book Flight</h3>
 				  </div>
 				  <div class="panel-body passenger-booking">
-						<%= form_for("https://www.paypal.com/cgi-bin/webscr", method: :post, url: bookings_path) do |f| %>
-						 <%= hidden_field_tag(name: "variableName", value: "allowedValue") %>
+						<%= form_for(@booking, url: bookings_path) do |f| %>
 							<%= f.fields_for :passengers do |passenger| %>
     				    <%= render 'passenger_fields', :f => passenger %>
 							<% end %>
 							<br>
+
 								<div class="links">
 						  		<%= link_to_add_association 'Add Another passenger',f, :passengers, :class => 'btn btn-primary add' %> 
 						  	</div>
