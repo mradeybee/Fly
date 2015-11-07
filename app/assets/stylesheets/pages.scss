@@ -4,6 +4,7 @@
 .pages{
   margin-top: 80px;
   position: relative;
+  margin-bottom: 80px;
 } 
 
 flight-list{
@@ -47,7 +48,7 @@ flight-list{
   background-color: #000;
   color: #fff;
   margin-bottom: -10px;
-  position: relative;
+  margin-top: 50px;
 }
 
 .fix{
@@ -80,6 +81,13 @@ flight-list{
   list-style-type: none;
   margin-left: 0;
 }
-tell{
+.tell{
   color: #fff;
+}
+
+body{
+  height: 100%; 
+}
+.im{
+  width: 50px;
 }

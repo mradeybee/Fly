@@ -16,7 +16,8 @@
       <ul class="nav navbar-nav navbar-right">
         <li><a href="/flights" class = "btn btn-link">All Flights</a></li>
         <% if current_user %>
-         <li> <a class = "btn btn-link"> <%= current_user.name.split(" ").last %></a></li>
+          <li> <%=image_tag(current_user.image, class: "img-circle im")  %></li>
+         <li> <a class = "btn btn-link disabled"> <%= current_user.name.split(" ").last %></a></li>
           <li > <%= link_to "Sign Out", sign_out_path, method: :delete, class: "btn btn-link" %></li>
         <% else %>
           <li><a data-toggle="modal" data-target=".bs-example-modal-sm" class = "btn btn-link">Login</a></li>

@@ -13,9 +13,10 @@ Rails.application.routes.draw do
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
   get 'booking_confirmed', to: 'bookings#booking_confirmed', as: 'booking_confirmed'
- get 'auth/:provider/callback', to: "sessions#create"
- delete 'sign_out', to: "sessions#destroy", as: "sign_out"
- get "paypal_express/checkout"
+  get 'auth/:provider/callback', to: "sessions#create"
+  delete 'sign_out', to: "sessions#destroy", as: "sign_out"
+  get "paypal_express/checkout"
+  resources :users
 
   # Example resource route with options:
   #   resources :products do
