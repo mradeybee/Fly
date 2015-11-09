@@ -1,22 +1,27 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Fly</title>
-  <%= stylesheet_link_tag 'application', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css', media: 'all', 'data-turbolinks-track' => true %>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <div class ="">
+	<html>
+		<head>
+			<title>Fly</title>
+			<%= stylesheet_link_tag 'application', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css', media: 'all', 'data-turbolinks-track' => true %>
+			<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+			<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+			<%= csrf_meta_tags %>
+		</head>
+		<body>
+			<div class ="">
+				<%= render 'layouts/navbar' %>
+					<%= yield %>
+				<%= render 'layouts/footer' %> 
+			</div>
 
-
-<%= render 'layouts/navbar' %>
-
- 
-<%= yield %>
-
-<%= render 'layouts/footer' %> 
+			<div class="modal fade coming_soon" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+    	<div class "modal-body" align="center">
+    		<i class="fa fa-ban text-danger fa-3x"></i><h5 class= "text-danger">Sorry, this feature will b available shortly</h5>
+    	</div>
+    </div>
+  </div>
 </div>
-</body>
-</html>
+		</body>
+	</html>

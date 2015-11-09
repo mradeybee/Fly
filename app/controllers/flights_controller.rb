@@ -11,7 +11,7 @@ class FlightsController < ApplicationController
 	
 	def search
 		parameter = params[:flight]
-		@search = Flight.search(parameter[:origin_id], parameter[:destination_id])
+		@search = Flight.search(parameter[:origin_id], parameter[:destination_id], parameter[:departure_date].gsub("/", "-"))
     respond_to do |format|
       if !@search.empty?
         format.html{render 'pages/index' }
