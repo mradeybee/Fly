@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   get 'auth/:provider/callback', to: "sessions#create"
   delete 'sign_out', to: "sessions#destroy", as: "sign_out"
   get "paypal_express/checkout"
+  get 'user_profile', to: 'bookings#user_profile', as: 'user_profile'
+  post 'get_code', to: 'bookings#get_code', as: 'get_code'
   resources :users
 
   # Example resource route with options:

@@ -1,0 +1,10 @@
+<div class="pages">
+	<div class ="container">
+		<div class ="row">
+			<caption>Booking Code</caption>
+			<% @passenger = Passenger.where(booking_id: params[:id])[0]%>
+			<br>
+			<%= @passenger[:name]%>
+		</div>
+	</div>
+</div>

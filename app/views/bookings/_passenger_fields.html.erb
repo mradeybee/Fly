@@ -1,17 +1,13 @@
-
- 	<div class="nested-fields form-inline">
+<div class="nested-fields form-inline">
   <div class="form-group">
-  	 <%= f.text_field :name, :class => "form-control", placeholder: "Passenger Name" %>
-     <%= hidden_field_tag(:flight_id, params["flight_id"])%>
-     <%= hidden_field_tag(:user_id, current_user.id) if current_user %>
-     <%= hidden_field_tag(:no_of_passengers, params["no_of_passengers"].to_i + 1)%>
+    <%= f.text_field :name, :class => "form-control", placeholder: "Passenger Name", required: true %>
   </div>
   <div class="form-group">
-  	 <label>-</label>
-    <%= f.text_field :email, :class => "form-control", placeholder: "Passenger Email"  %>
+    <label>-</label>
+    <%= f.email_field :email, :class => "form-control", placeholder: "Passenger Email",required: true  %>
   </div>
   <div class="links pull-right">
-  <%= link_to_remove_association "Delete", f, class: "btn btn-danger" %>
- </div>
-  <hr>
+    <%= link_to_remove_association "Delete", f, class: "btn btn-danger" %>
   </div>
+  <hr>
+</div>

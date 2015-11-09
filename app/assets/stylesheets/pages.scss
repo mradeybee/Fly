@@ -6,9 +6,31 @@
   position: relative;
   margin-bottom: 80px;
 } 
+.home_result{
+   margin-bottom: 80px;
+}
 
-flight-list{
-  border: solid 5px #2E9AFE;
+.slider{
+  position: relative;
+}
+.welcome-txt{
+
+  position: absolute;
+  color: #fff;
+  top: 240px;
+  background: linear-gradient(rgba(0,0,0,.8) 30%, rgba(0,0,0,.8) 30%);
+  margin-left: 15px;  
+  margin-right: 15px;
+  left: 90px;  
+  padding-left: 40px;
+  border-radius: 20px;
+  padding-right: 40px;
+  width: auto;
+}
+
+.flight-list{
+  border-bottom: solid 5px #2E9AFE;
+  border-radius: 10px;
 }
 .navi{
   background-color: #000;
@@ -28,13 +50,19 @@ flight-list{
   background: linear-gradient(rgba(0,0,0,.8) 50%, rgba(0,0,0,.8) 70%);
   margin-left: 15px;  
   margin-right: 15px;
-  left: 70px;  
+  left: 90px;  
+  border-radius: 20px;
   padding-left: 40px;
   padding-bottom: 20px;
   padding-right: 40px;
   width: auto;
 }
-
+.profile{
+  border-radius: 30px;
+  border-left: solid 2px #2E9AFE;
+  border-right: solid 2px #2E9AFE;
+  padding: 15px;
+}
 .boxx{
   height: 40px;
 }
@@ -43,12 +71,17 @@ flight-list{
   color: #fff;
 }
 
+.user-img{
+  width: 200px;
+  border-bottom: solid 5px #2E9AFE;
+}
+
 .footer{
   padding: 20px;
   background-color: #000;
   color: #fff;
   margin-bottom: -10px;
-  margin-top: 50px;
+  margin-top: 100px;
 }
 
 .fix{
@@ -61,6 +94,8 @@ flight-list{
 
 .flight_table{
   margin-left: 0px;
+  border-bottom: solid 5px #2E9AFE;
+  border-radius: 10px; 
 }
 
 .search_airline{
@@ -90,4 +125,5 @@ body{
 }
 .im{
   width: 50px;
+  border: solid 2px #2E9AFE;
 }
