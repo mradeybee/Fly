@@ -2,10 +2,11 @@ Rails.application.routes.draw do
 
  # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
+  root 'pages#index'
   post 'flight_search', to: 'flights#flight_search', as: 'flight_search'
   post 'index_search', to: 'flights#index_search', as: 'index_search'
   # You can have the root of your site routed with "root"
-  root 'pages#index'
+
   resources :flights
   resources :bookings
   post 'booking_create', to: 'bookings#create', as: 'booking_create'

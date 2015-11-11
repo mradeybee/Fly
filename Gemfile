@@ -23,6 +23,7 @@ gem 'responders', '~> 2.0'
 gem 'execjs'
 gem 'cocoon'
 gem 'puma'
+gem 'coveralls', require: false
 
 
 # gem 'unicorn'
@@ -33,6 +34,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'capybara', :git => 'git://github.com/jnicklas/capybara.git'
   gem 'selenium-webdriver'
+  gem 'database_cleaner'
 end
 group :development do
   gem 'web-console', '~> 2.0'

@@ -21,12 +21,13 @@
          <li> <%= link_to current_user.name.split(" ").last.upcase, user_profile_path ,  class: "btn btn-link"  %></li>
           <li > <%= link_to "Sign Out", sign_out_path, method: :delete, class: "btn btn-link" %></li>
         <% else %>
-          <li id ="login"><a data-toggle="modal"  data-target=".bs-example-modal-sm" class = "btn btn-link">Log In</a></li>
+          <li id ="login"><a href= "#" data-toggle="modal"  data-target=".bs-example-modal-sm" class = "btn btn-link">Log In</a></li>
         <% end %> 
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+
 <div class="modal  fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
@@ -36,7 +37,7 @@
         <h4 class="modal-title">Login</h5>
       </div>
         <div class = "modal-body">
-             <div  align = "center">
+        <div  align = "center">
           <a id ="authfb" class="btn btn-primary active facebook" href="/auth/facebook">Facebook</a>
            <a class="btn btn-danger active" href="/auth/google_oauth2">Google </a>
         </div>
