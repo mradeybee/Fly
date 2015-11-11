@@ -22,18 +22,15 @@ RSpec.describe "Routes", type: :routing do
     expect(get("/bookings/new")).to route_to("bookings#new")
   end
   
-  it "routes to booking update" do
+  it "routes to booking create" do
     expect(post("/bookings")).to route_to("bookings#create")
   end
-  # it "routes to booking index" do
-  #   expect(get("/bookings/:id/edit")).to route_to("bookings#edit")
-  # end
-  #   it "routes to booking index" do
-  #   expect(get("/bookings")).to route_to("bookings#index")
-  # end
-
-
-    it "routes logout path to sessions controller and destroy action" do
+     
+  it "routes to booking index" do
+    expect(get("/booking_confirmed")).to route_to("bookings#booking_confirmed")
+  end
+  
+   it "routes booking edit" do
       expect(:get => "/bookings/:id/edit").to route_to(
         :controller => "bookings",
         :action => "edit",
@@ -41,32 +38,40 @@ RSpec.describe "Routes", type: :routing do
       )
     end
 
-    # it "routes google OAuth path to sessions controller and create action" do
-    #   expect(:get => "/auth/:provider/callback").to route_to(
-    #     :controller => "sessions",
-    #     :action => "create",
-    #     :provider => ":provider"
-    #   )
-    # end
+     it "routes booking update" do
+      expect(:patch => "/bookings/:id").to route_to(
+        :controller => "bookings",
+        :action => "update",
+        :id => ":id"
+      )
+    end
 
-    # it "routes flights/all path to flights controller and index action" do
-    #   expect(get("flights/all")).to route_to("flights#index")
-    # end
+    it "routes to login or session create" do
+      expect(:get => "/auth/:provider/callback").to route_to(
+        :controller => "sessions",
+        :action => "create",
+        :provider => ":provider"
+      )
+    end  
 
-    # it "routes search path to flights controller and search action" do
-    #   expect(get("flights/search")).to route_to("flights#search")
-    # end
+    it "routes to cancel bookings" do
+      expect(:delete => "/bookings/:id").to route_to(
+        :controller => "bookings",
+        :action => "destroy",
+        :id => ":id"
+      )
+    end
 
-    # it "routes make_booking path to bookings controller and new action" do
-    #   expect(get("booking/make_booking")).to route_to("bookings#new")
-    # end
 
-    # it "routes root path to bookings controller and create action" do
-    #   expect(post("to_booking")).to route_to("bookings#create")
-    # end
+    it "routes to sign_out or session destroy" do
+      expect(:delete => "/sign_out").to route_to(
+        :controller => "sessions",
+        :action => "destroy",
 
-    # it "routes root path to bookings controller and index action" do
-    #   expect(get("dashboard")).to route_to("bookings#index")
-    # end
+      )
+    end
 
+    it "routes to user dashboard" do
+      expect(get("/user_profile")).to route_to("bookings#user_profile")
+    end
 end
