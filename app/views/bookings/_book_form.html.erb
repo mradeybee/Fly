@@ -1,0 +1,17 @@
+ <div class="panel-body passenger-booking">
+	<%= form_for(@booking) do |f| %>
+	 	<%= f.hidden_field(:flight_id)%>
+    <%= f.hidden_field(:user_id) %>
+		<%= f.fields_for :passengers do |passenger| %>
+	    <%= render 'passenger_fields', :f => passenger %>
+		<% end %>
+		<br>
+		<div class="links">
+  		<%= link_to_add_association 'Add Another passenger',f, :passengers, :class => 'btn btn-primary add' %> 
+  	</div>
+  </div>
+  	<div class="panel-footer">
+		<%= submit_tag "Book Now", class: "btn btn-primary book" %>
+			<a class = "btn btn-link pull-right disabled"><%= notice %></a>
+		</div>
+		<% end %>

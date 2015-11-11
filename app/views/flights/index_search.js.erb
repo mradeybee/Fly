@@ -1,4 +1,5 @@
-$("#search_result").prepend('<%= j render "pages/search_result" %>');
+$(".myFlights").remove() 
+$("#search_result").html('<%= j render "pages/search_result" %>');
 $(".origin").val("From Where?")
 $(".destination").val("To Where?");
 $(".date").val('Departure Date');

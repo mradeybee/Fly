@@ -3,11 +3,11 @@
         <div class="col-md-12 "> 
           <div class=" flight_search" id ="result">
             <div class="panel-body" >
-                <% if @flight %>
-                  <% if !@flight.empty? %>
-                   <% @flights = @flight.first %>
- <h2>Search results for flights from <%= @flights.origin.location %> to <%= @flights.destination.location %></h2>
-<hr>  
+                <% if @flights %>
+                  <% if !@flights.empty? %>
+                   <% first_= @flight.first %>
+                     <h2>Search results for flights from <%= @flights.origin.location %> to <%= @flights.destination.location %></h2>
+                    <hr>  
                     <% for flights in @flight %>
                       <%= form_tag("/bookings/new", method: :get) do%> 
                         <li class="list-group-item flight_table" align = "center">

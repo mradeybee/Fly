@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
 		user = User.sign_in_from_omniauth(auth)
 		session[:user_id] = user.id
 		flash[:notice] = "Signed In"
-		redirect_to root_path
+		redirect_to session["cur_url"]
 	end
 
 	def destroy
@@ -14,4 +14,6 @@ class SessionsController < ApplicationController
 		flash[:notice] = "Signed Out"
 		redirect_to root_path
 	end
+
+
 end
