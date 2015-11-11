@@ -20,15 +20,13 @@
 
   position: absolute;
   color: #fff;
-  top: 240px;
+  top: 275px;
   background: linear-gradient(rgba(0,0,0,.8) 30%, rgba(0,0,0,.8) 30%);
-  margin-left: 15px;  
   margin-right: 15px;
-  left: 90px;  
   padding-left: 40px;
-  border-radius: 20px;
+  border-radius: 2px;
   padding-right: 40px;
-  width: auto;
+  width: 100%;
 }
 
 .flight-list{
@@ -53,12 +51,12 @@
   background: linear-gradient(rgba(0,0,0,.8) 50%, rgba(0,0,0,.8) 70%);
   margin-left: 15px;  
   margin-right: 15px;
-  left: 90px;  
-  border-radius: 20px;
+  border-radius: 3px;
   padding-left: 40px;
   padding-bottom: 20px;
   padding-right: 40px;
-  width: auto;
+  vertical-align: middle;
+  width: 100%;
 }
 .profile{
   border-radius: 30px;
