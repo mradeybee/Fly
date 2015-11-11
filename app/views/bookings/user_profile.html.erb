@@ -15,24 +15,26 @@
 				  	<caption>Bookings Summary</caption>
 				      <thead>
 				        <tr>
-				        	<th>Booking Code</th>
+				        	<th>Booking Reference Number</th>
 				          <th>Booking Id</th>
-				          <th>Flight Id</th>
+				          <th>Flight Details</th>
 				          <th>Date Created</th>
 				          <th>Time Created</th>
 				          <th>Manage</th>
 				        </tr>
 				      </thead>
 				      <tbody>
+
 				      	<% for booking in @booking %>
-					        <tr>
-					        	<td><%= booking.code %></td>
-					          <td><%= booking.id %></td>
-					          <td>Flight #000<%= booking.flight_id %></td>
-					          <td><%= booking.created_at.strftime("%d - %m - %Y") %></td>
-					           <td><%= booking.created_at.strftime("%-l:%M%P") %></td>
-					           <td><button  data-toggle="modal" data-target=".coming_soon" class = " btn btn-sm btn-info">Mannage</button></td>
-					        </tr>
+				      		<% flight = Flight.find(booking.flight_id) %>
+							        <tr>
+							        	<td><%= booking.code %></td>
+							          <td>Fly-#201511-<%= booking.id %></td>
+							          <td><%=flight.airline %> #000<%= booking.flight_id %></td>
+							          <td><%= booking.created_at.strftime("%d - %m - %Y") %></td>
+							           <td><%= booking.created_at.strftime("%-l:%M%P") %></td>
+							           <td><%= link_to "Manage", edit_booking_path(booking.id),  class: " btn btn-sm btn-info"%></td>
+							        </tr>
 					        <% end %>
 				      </tbody>
 		    		</table>

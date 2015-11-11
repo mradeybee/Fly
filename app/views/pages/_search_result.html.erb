@@ -3,12 +3,12 @@
     <div class="row">
    <div class="panel-body">
 
-    <% if @search %>
-     <% if !@search.empty? %>
-     <% @flights = @search.first %>
- <h2>Search results for flights from <%= @flights.origin.location %> to <%= @flights.destination.location %></h2>
+    <% if @flights %>
+     <% if !@flights.empty? %>
+     <% first_flight = @flights.first %>
+ <h2>Search results for flights from <%= first_flight.origin.location %> to <%= first_flight.destination.location %></h2>
 <hr>  
-        <% for flights in @search %>
+        <% for flight in @flights %>
 
           <%= form_tag("/bookings/new", method: :get) do%> 
             <li class="list-group-item flight-list">
@@ -17,37 +17,37 @@
                   <div class="col-md-2 text-center vertical-align search_airline">
                     <div class="">
                       <div class="radio-danger">
-                        <%= radio_button_tag(:flight_id, flights.id) %>
-                        <%= hidden_field_tag(:flight_id, flights.id) %>
+                        <%= radio_button_tag(:flight_id, flight.id) %>
+                        <%= hidden_field_tag(:flight_id, flight.id) %>
                       </div>
-                      <%= label_tag "flights_id_#{flights.id}", flights.airline %>
-                      <%= hidden_field_tag(:airline, flights.airline) %>
+                      <%= label_tag "flights_id_#{flight.id}", flight.airline %>
+                      <%= hidden_field_tag(:airline, flight.airline) %>
                     </div>
                   </div>
                   <div class="">
                     <div class="col-md-3">
                       <div class="">
                         <i class="fa fa-plane"></i>
-                        <h5><%= label_tag "#{flights.departure_date.strftime('%-l:%M%P')}" %></h5><%= hidden_field_tag(:departure_time, flights.departure_date.strftime("%-l:%M%P")) %>
-                        <p class=""><%= flights.departure_date.strftime("%d - %m - %Y")%></p>
-                        <%= hidden_field_tag(:departure_date, flights.departure_date.strftime("%d - %m - %Y")) %>
-                        <%= flights.origin.name %>
-                        <%= hidden_field_tag(:origin, flights.origin.name) %></p>
+                        <h5><%= label_tag "#{flight.departure_date.strftime('%-l:%M%P')}" %></h5><%= hidden_field_tag(:departure_time, flight.departure_date.strftime("%-l:%M%P")) %>
+                        <p class=""><%= flight.departure_date.strftime("%d - %m - %Y")%></p>
+                        <%= hidden_field_tag(:departure_date, flight.departure_date.strftime("%d - %m - %Y")) %>
+                        <%= flight.origin.name %>
+                        <%= hidden_field_tag(:origin, flight.origin.name) %></p>
                       </div>
                     </div>
                     <div class="col-md-3">
                       <i class="fa fa-plane fa-flip-vertical"></i>
-                      <h5><%= flights.arrival_date.strftime("%-l:%M%P") %></h5>
-                      <%= hidden_field_tag(:arrival_time, flights.arrival_date.strftime("%-l:%M%P")) %>
-                      <p class=""><%= flights.arrival_date.strftime("%d - %m - %Y")%></p>
-                      <%= hidden_field_tag(:arrival_date, flights.arrival_date.strftime("%d - %m - %Y")) %>
-                      <%= flights.destination.name %>
-                     <%= hidden_field_tag(:destination, flights.destination.name) %></p>
+                      <h5><%= flight.arrival_date.strftime("%-l:%M%P") %></h5>
+                      <%= hidden_field_tag(:arrival_time, flight.arrival_date.strftime("%-l:%M%P")) %>
+                      <p class=""><%= flight.arrival_date.strftime("%d - %m - %Y")%></p>
+                      <%= hidden_field_tag(:arrival_date, flight.arrival_date.strftime("%d - %m - %Y")) %>
+                      <%= flight.destination.name %>
+                     <%= hidden_field_tag(:destination, flight.destination.name) %></p>
                     </div>
                   </div>
                   <div class="col-md-3 search_price">
-                    <span class=""><%= (number_to_currency flights.price, delimiter: '.') %></span>
-                     <%= hidden_field_tag(:price, flights.price, delimiter: '.') %>
+                    <span class=""><%= (number_to_currency flight.price, delimiter: '.') %></span>
+                     <%= hidden_field_tag(:price, flight.price, delimiter: '.') %>
                     <span>/person</span>
                     <p><%= submit_tag 'Select', class: "btn btn-primary" %></p>
                   </div> 
@@ -61,7 +61,7 @@
         <h4>No Flights Found</h4>
       <% end %>
       <br> <%= link_to 'All Flights', flights_path, class: "btn btn-primary pull-right"%>
-      <%= link_to 'close', root_path, class: "btn btn-danger pull-left"%>
+      <%= link_to 'close', :back, class: "btn btn-danger pull-left"%>
     <% end %>
   </div>
 </div>

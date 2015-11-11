@@ -16,3 +16,7 @@
 //= require bootstrap-datepicker
 //= require turbolinks
 //= require_tree .
+$('.datepicker').datepicker({
+    format: 'dd-mm-yyyy',
+    autoclose: true
+})

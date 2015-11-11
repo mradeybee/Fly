@@ -1,10 +1,24 @@
 class BookingsController < ApplicationController
+  before_action :set_booking, only: [:show, :edit, :update, :destroy]
+
   def index
   end
 
   def new
    	@booking = Booking.new(new_booking_params)
     @booking.user_id = current_user.id if current_user
+  end
+
+  def edit
+    if !current_user
+      redirect_to root_path 
+    else
+      @passengers = Passenger.where(booking_id: params[:id])
+      @booking = Booking.find(params[:id])
+      @flight = Flight.find(@booking.flight_id)
+      @origin = Airport.where(id: @flight.origin_id)
+      @destination = Airport.where(id: @flight.destination_id)
+    end
   end
 
   def create
@@ -21,9 +35,34 @@ class BookingsController < ApplicationController
     end
   end
 
+  def update
+    respond_to do |format|
+      if @booking.update(booking_params)
+        format.html { redirect_to :back, notice: 'Booking was successfully updated.' }
+        format.json { render :show, status: :ok, location: @booking }
+      else
+        format.html { render :edit }
+        format.json { render json: @booking.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+    def destroy
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    respond_to do |format|
+      format.html { redirect_to bookings_url, notice: 'Booking was successfully Canceled.' }
+      format.json { head :no_content }
+    end
+  end
+
   def user_profile
-    user = current_user.id if current_user
-     @booking = Booking.where(user_id: user).paginate(:page => params[:page], :per_page => 5)
+    if !current_user
+      redirect_to root_path 
+    else
+      user = current_user.id if current_user
+      @booking = Booking.where(user_id: user).paginate(:page => params[:page], :per_page => 5)
+    end
   end
 
   # def get_code
@@ -43,17 +82,17 @@ class BookingsController < ApplicationController
   # end
 
  	private
-	  def set_bookings
+	  def set_booking
 	    @booking = Booking.find(params[:id])
 	  end
 
 	  def booking_params
       params.require(:booking).permit(:flight_id, :user_id, :no_of_passengers, :code, 
-        passengers_attributes:[:name, :email,:_destroy])
+        passengers_attributes:[:id,:name, :email,:_destroy])
     end
 
     def new_booking_params
-      params.permit(:flight_id, :code)
+      params.permit(:flight_id)
     end
 
     def this_user

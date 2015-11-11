@@ -12,19 +12,24 @@ end
 describe "Visits home page and logs in", :type => :feature do
   it "logs me in" do
     visit "/"
-    accept_alert do
-  			click_link "Log In"
-			end
-   	click_on "Facebook" 
+    within("#login") do
+      accept_alert do
+        page.find("a").click
+      end
+    end
+    within("#authfb")do
+      age.find("Facebook").click
+    end
+   
     expect(page).to have_content 'Welcome'
   end
 end
 
 describe "Visits All Flights page", :type => :feature do
-  it "logs me in" do
+  it "visits all flights page" do
     visit "/"
     click_on "All Flights"
-    expect(page).to have_content 'All'
+    expect(page).to have_content '← Previous'
   end
 end
 

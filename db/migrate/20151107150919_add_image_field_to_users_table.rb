@@ -3,3 +3,4 @@ class AddImageFieldToUsersTable < ActiveRecord::Migration
   	add_column :users, :image, :string
   end
 end
+ 

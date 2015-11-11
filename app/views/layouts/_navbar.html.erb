@@ -18,10 +18,10 @@
         <li><a href="/flights" class = "btn btn-link">All Flights</a></li>
         <% if current_user %>
           <li> <%=image_tag(current_user.image, class: "img-circle im")  %></li>
-         <li> <%= link_to current_user.name.split(" ").last, user_profile_path ,  class: "btn btn-link"  %></li>
+         <li> <%= link_to current_user.name.split(" ").last.upcase, user_profile_path ,  class: "btn btn-link"  %></li>
           <li > <%= link_to "Sign Out", sign_out_path, method: :delete, class: "btn btn-link" %></li>
         <% else %>
-          <li><a data-toggle="modal" data-target=".bs-example-modal-sm" class = "btn btn-link">Log In</a></li>
+          <li id ="login"><a data-toggle="modal"  data-target=".bs-example-modal-sm" class = "btn btn-link">Log In</a></li>
         <% end %> 
       </ul>
     </div><!-- /.navbar-collapse -->
@@ -32,12 +32,13 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="gridSystemModalLabel">Login</h5>
+        <% session["cur_url"] = request.url %>
+        <h4 class="modal-title">Login</h5>
       </div>
         <div class = "modal-body">
-             <div align = "center">
-          <a class="btn btn-primary active" href="/auth/facebook">Facebook</a>
-           <a class="btn btn-danger active" href="#">Google </a>
+             <div  align = "center">
+          <a id ="authfb" class="btn btn-primary active facebook" href="/auth/facebook">Facebook</a>
+           <a class="btn btn-danger active" href="/auth/google_oauth2">Google </a>
         </div>
         </div>
     </div>
