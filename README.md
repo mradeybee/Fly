@@ -4,7 +4,7 @@
 
 * Introduction
 
-Hello there, Fly is a flight booking system and it is written with rails. Just incase you dont know how rails applications weork, dont worry, I will work you through the installation process and the app usage too.
+Hello there, Fly is a flight booking system and it is written with rails. Just incase you dont know how rails applications walk, dont worry, I will work you through the installation process and the app usage too.
 
 * Features
 
@@ -75,7 +75,7 @@ The app is a work in progress, as such, it has the following limitations among o
 
 Booking can not be done via any other payment gateway.The app assumes that booking is cancelled when payment has not been made.App doesn't have a private domain name yet.
 
-You can also check <a href="https://fly.hreokuapp.com" target="blank">the hosted version</a> of this app
+You can also check <a href="https://fly.herokuapp.com" target="blank">the hosted version</a> of this app
 
 Contributing
 
