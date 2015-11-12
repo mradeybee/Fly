@@ -1,27 +1,29 @@
-// Place all the behaviors and hooks related to the matching controller here.
-// All this logic will automatically be available in application.js.
+// // Place all the behaviors and hooks related to the matching controller here.
+// // All this logic will automatically be available in application.js.
 
-// function(){
-// var add = document.querySelector(".add");
-// var parent = document.querySelector(".passenger-booking");
-// var nest = parent.getElementsByClassName("nested-fields");
-// var btn = document.querySelector(".book");
-// if (nest.length === 0){
-// 	btn.setAttrbute("disabled", true);
-// else{
-// 	btn.removeAttribute("disabled");
-// }
-// }
-// }
+// window.onload = function () {
+// 	var btn = document.querySelector("[value='Book Now']"),
+// 			nestedForm = document.getElementsByClassName("nested-fields"),
+// 			addBtn = document.querySelector(".add_fields"),
+// 			removeBtn = document.getElementsByClassName("remove_fields");
+	
+// 	function checkBooking() {
+// 		if (nestedForm.length == 0) {
+// 			btn.setAttribute("disabled", true)	
+// 		} else {
+// 			btn.removeAttribute("disabled");
+// 		}
+// 	}
 
-// $(document).ready(function () {
-// 	var add = $(".add_fields"),
-// 			bookBtn = $(".book"),
-// 			foo = $(".foo"),
-// 			passengerBooking = document.getElementsByClassName("nested-fields");
+// 	checkBooking();
 
-// 			foo.on("click", ".delete", function () {
-// 				console.log($(this));
-// 			});
+// 	addBtn.addEventListener("click", function () {
+		
+// 		for (var i = 0, len = removeBtn.length; i < len; i += 1) {
+// 			console.log(removeBtn[i]);
+// 		}
 
-// });
+
+// 		checkBooking();
+// 	});
+// };
