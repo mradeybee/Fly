@@ -5,6 +5,7 @@ RSpec.feature "UserView"  do
 	before(:each) do
 	  load "#{Rails.root}/spec/support/seed.rb" 
 	end
+	
 	before(:each) do
 	  Seed.airports
 	  Seed.flights
@@ -17,8 +18,8 @@ RSpec.feature "UserView"  do
 	  end
 	end
 
-	describe "Unregistered user" do
-	  it "books a flight" do
+	describe "Visits All flight and booking page" do
+	  it "gets to flight booking page" do
 	    visit "/"
 	    click_on "All Flights"
 
@@ -30,6 +31,4 @@ RSpec.feature "UserView"  do
 	    expect(page).to have_content 'Book Flight'
 	  end
 	end
-
-
 end

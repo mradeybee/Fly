@@ -1,5 +1,6 @@
 require 'rails_helper'
 RSpec.describe BookingsController, :type => :controller do
+
   describe "GET index" do
     let(:booking_params) {"books"}
     it "assigns @bookings" do
@@ -11,6 +12,6 @@ RSpec.describe BookingsController, :type => :controller do
     it "renders the index template" do
       get :index
       expect(response).to render_template("index")
-    end
+    end 
   end
 end
