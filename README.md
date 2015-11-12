@@ -75,7 +75,7 @@ The app is a work in progress, as such, it has the following limitations among o
 
 Booking can not be done via any other payment gateway.The app assumes that booking is cancelled when payment has not been made.App doesn't have a private domain name yet.
 
-You can also check <a href="http://fly.hreokuapp.com">the hosted version</a> of this app
+You can also check <a href="https://fly.hreokuapp.com" target="blank">the hosted version</a> of this app
 
 Contributing
 
