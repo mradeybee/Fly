@@ -1,10 +1,11 @@
-<div class="nested-fields form-inline">
+<div class="nested-fields form-inline" id ="nested-fields">
+
   <div class="form-group">
-    <%= f.text_field :name, :class => "form-control", placeholder: "Passenger Name", required: true %>
+    <%= f.text_field :name, :class => "form-control", :id => "name", placeholder: "Passenger Name", required: true %>
   </div>
   <div class="form-group">
     <label>-</label>
-    <%= f.email_field :email, :class => "form-control", placeholder: "Passenger Email",required: true  %>
+    <%= f.email_field :email, :class => "form-control",:id => "email", placeholder: "Passenger Email",required: true  %>
   </div>
   <div class="links pull-right">
     <%= link_to_remove_association "Delete", f, class: "btn btn-danger",:confirm => "Are you sure?" %>

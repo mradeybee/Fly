@@ -16,7 +16,12 @@
 				<p><strong><h4> Landing Date and Time:</strong> <%= @flight.arrival_date.strftime('%d-%m-%Y')%> - <%= @flight.arrival_date.strftime("%-l:%M%P") %></h4></p>
 				<p><strong><h4> Flight Fare:</strong> $<%= @passengers.count.to_i * @flight.price.to_i %> </h4></p>
 				<br>
+				<% if @flight.departure_date >= DateTime.now %>
 				<%= link_to 'Cancel Booking', @booking, method: :delete, data: { confirm: 'Are you sure?'},class: "btn btn-danger"  %>
+				<% else %>
+				<p class= "alert-warning"> Your flight has taken off <p>
+					<% end %>
+
 				</div>
 			</div>
 		</div>
