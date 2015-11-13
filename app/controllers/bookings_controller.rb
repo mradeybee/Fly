@@ -51,7 +51,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @booking.destroy
     respond_to do |format|
-      format.html { redirect_to user_profile, notice: 'Booking was successfully Canceled.' }
+      format.html { redirect_to flight_path, notice: 'Booking was successfully Canceled.' }
       format.json { head :no_content }
     end
   end
@@ -67,10 +67,6 @@ class BookingsController < ApplicationController
 
   def booking_confirmed
     @booking = Booking.find(params[:id])
-  end
-
-  def get_code
-    @booking = Booking.where(code: params[:code])
   end
 
   private
