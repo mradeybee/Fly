@@ -8,7 +8,7 @@ class Flight < ActiveRecord::Base
 
   def self.search(origin, destination, departure_date)
     departure_date = "#{departure_date}%"
-    Flight.where("origin_id = ? AND destination_id = ? AND departure_date LIKE ?", origin, destination, departure_date)
+    Flight.where("origin_id = ? AND destination_id = ? AND departure_date ILIKE ?", origin, destination, departure_date)
   end
 
   def sort_by_date(departure_date)
