@@ -1,57 +1,51 @@
-<div class= "pages">
-	<div class="container">
-		<div class="row" align ="center">
-			<div class="col-md-12 profile">
-				<% if @booking.count > 0 %>
-				<div class = "form-inline pull-right">
-				<div class="form-group">
-					<%= text_field :code, :code, class: "form-control",  placeholder: "Search With Booking Code" %>
-				</div>
-				<div class="form-group">
-				 <td><button  data-toggle="modal" data-target=".coming_soon" class = " btn btn-sm btn-primary form-group">Search</button></td>
-				</div>
+	<div class= "pages">
+		<div class="container">
+			<div class="row" align ="center">
+				<div class="col-md-12 profile">
+					<% if @booking.count > 0 %>
+					<div class = "form-inline pull-right">
+						<div class="form-group">
+							<%= text_field :code, :code, class: "form-control",  placeholder: "Search With Booking Code" %>
+						</div>
+						<div class="form-group">
+							<td><button  data-toggle="modal" data-target=".coming_soon" class = " btn btn-sm btn-primary form-group">Search</button></td>
+						</div>
+					</div>
+					<table class="table">
+						<caption>Bookings Summary</caption>
+						<thead>
+							<tr>
+							<th>Booking Reference Number</th>
+							<th>Booking Id</th>
+							<th>Flight Details</th>
+							<th>Date Created</th>
+							<th>Time Created</th>
+							<th>Manage</th>
+							</tr>
+						</thead>
+						<tbody>
+							<% for booking in @booking %>
+							<% flight = Flight.find(booking.flight_id) %>
+							<tr>
+							<td><%= booking.code %></td>
+							<td>Fly-#201511-<%= booking.id %></td>
+							<td><%=flight.airline %> #000<%= booking.flight_id %></td>
+							<td><%= booking.created_at.strftime("%d - %m - %Y") %></td>
+							<td><%= booking.created_at.strftime("%-l:%M%P") %></td>
+							<td><%= link_to "Manage", edit_booking_path(booking.id),  class: " btn btn-sm btn-info"%></td>
+							</tr>
+							<% end %>
+						</tbody>
+					</table>
+					<% else %>
+					<a href="/flights" class ="btn btn-primary">Book A flight now</a>
+					<% end %>
+					<div>
+						<%= page_entries_info @booking %>
+					</div>
+					<div>
+						<%= will_paginate @booking, renderer: BootstrapPagination::Rails  %>
+					</div>
 			</div>
-									<table class="table">
-				  	<caption>Bookings Summary</caption>
-				      <thead>
-				        <tr>
-				        	<th>Booking Reference Number</th>
-				          <th>Booking Id</th>
-				          <th>Flight Details</th>
-				          <th>Date Created</th>
-				          <th>Time Created</th>
-				          <th>Manage</th>
-				        </tr>
-				      </thead>
-				      <tbody>
-
-				      	<% for booking in @booking %>
-				      		<% flight = Flight.find(booking.flight_id) %>
-							        <tr>
-							        	<td><%= booking.code %></td>
-							          <td>Fly-#201511-<%= booking.id %></td>
-							          <td><%=flight.airline %> #000<%= booking.flight_id %></td>
-							          <td><%= booking.created_at.strftime("%d - %m - %Y") %></td>
-							           <td><%= booking.created_at.strftime("%-l:%M%P") %></td>
-							           <td><%= link_to "Manage", edit_booking_path(booking.id),  class: " btn btn-sm btn-info"%></td>
-							        </tr>
-					        <% end %>
-				      </tbody>
-		    		</table>
-		    <% else %>
-	    		<a href="/flights" class ="btn btn-primary">Book A flight now</a>
-	    	<% end %>
-	    	<div>
-					<%= page_entries_info @booking %>
-	    	</div>
-	     	<div>
-	        <%= will_paginate @booking, renderer: BootstrapPagination::Rails  %>
-	      </div>
 		</div>
 	</div>
-</div>
-
-
-
-<!-- Small modal -->
-

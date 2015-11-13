@@ -27,7 +27,11 @@ RSpec.describe "Routes", type: :routing do
   end
      
   it "routes to booking index" do
-    expect(get("/booking_confirmed")).to route_to("bookings#booking_confirmed")
+    expect(:get => "booking_confirmed/:id").to route_to(
+        :controller => "bookings",
+        :action => "booking_confirmed",
+        :id => ":id"
+      )
   end
   
    it "routes booking edit" do

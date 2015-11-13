@@ -22,12 +22,10 @@ gem 'therubyracer'
 gem 'responders', '~> 2.0'
 gem 'execjs'
 gem 'cocoon'
+gem 'prawn'
 gem 'puma'
 gem 'coveralls', require: false
 
-
-# gem 'unicorn'
-# gem 'capistrano-rails', group: :development
 group :development, :test do
   gem 'byebug'
   gem 'pry'

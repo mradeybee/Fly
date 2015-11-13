@@ -1,2 +1,22 @@
-Hi <%= @user.name %>
-Sample mail sent using smtp.
+<% @flight = Flight.find(@booking.flight_id) %>
+<% @passengers = Passenger.where(booking_id: @booking.id) %>
+Your Booking For Flight "<%= @flight.airline %> #000<%= @flight.id %>" from <%= @flight.origin.location %> to <%= @flight.destination.location %> was successful.
+
+Booking: <%= @booking.code %>
+
+Flight Details
+
+Airline: <%= @flight.airline %>	
+From: <%= @flight.origin.name %> 
+To: <%= @flight.destination.name %>
+Take off date: <%= @flight.departure_date.strftime('%d - %m - %Y') %>, <%= @flight.departure_date.strftime('%-l:%M%P') %>
+Landing Date: <%= @flight.arrival_date.strftime('%d - %m - %Y') %>, <%= @flight.arrival_date.strftime('%-l:%M%P') %>
+No of seats reserved: <%= @passengers.count %>
+Total Price: $<%= @flight.price.to_i * @passengers.count %>
+
+
+Passengers Details
+<% @passengers.each do |passenger| %>
+Name: <%= passenger.name %>
+Email: <%= passenger.email %>	
+<% end %>

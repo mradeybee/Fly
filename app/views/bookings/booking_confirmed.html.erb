@@ -2,27 +2,34 @@
 	<div class = "container">
 		<div class ="row">
 			<div class =" col-md-12">
-				<h1 class = "text-success" align= "center"> Booking Successful </h1>
-				<h2 align= "center">You booked flight #345 from (ORIGIN) to (DESTINATION).</h2>	
-				<div align ="center">
+				<% @booking.id %>
+				<% @flight = Flight.find(@booking.flight_id) %>
+				<% @passengers = Passenger.where(booking_id: @booking.id) %>
+				<h2 align= "center" class = "text-info"	>Your Booking For Flight "<%= @flight.airline %> #000<%= @flight.id %>" from <%= @flight.origin.location %> to <%= @flight.destination.location %> was successful.</h2>	
+				<hr>
+				<div>
 					<div class = "col-md-6">
-						<h3> Flight Details</h3>
-						<p>Airline:</p>
-						<p>From:</p>
-						<p>To:</p>
-						<p>Take off date:</p>
-						<p>Landing Date:</p>
-						<p>No of seats reserved:</p>
-						<p>Price:</p>
+						<h3 class = "text-info" ><strong>Flight Details</strong></h3>
+						<hr>	
+						<h4><strong>Airline:</strong> <%= @flight.airline %></h4>
+						<h4><strong>From:</strong> <%= @flight.origin.name %></h4>
+						<h4><strong>To:</strong> <%= @flight.destination.name %></h4>
+						<h4><strong><h4><strong>Take off date:</strong> <%= @flight.departure_date.strftime('%d - %m - %Y') %>, <%= @flight.departure_date.strftime('%-l:%M%P') %></h4>
+						<h4><strong>Landing Date: </strong></strong><%= @flight.arrival_date.strftime('%d - %m - %Y') %>, <%= @flight.arrival_date.strftime('%-l:%M%P') %></h4>
+						<h4><strong>No of seats reserved:</strong> <%= @passengers.count %></h4>
+						<h4><strong>Total Price: </strong>$<%= @flight.price.to_i * @passengers.count %>  </h4>
+						<%= link_to "Print", booking_path(@booking, format: "pdf") %>
 					</div>
 					<div class = "col-md-6">
-						<h3> Passenger Details</h3>
-						<p>Name</p>
-						<p>Email</p>
-						<p>Seat Number</p>
+						<h3 class = "text-info"> <strong>Passengers Details</strong></h3>
+						<hr>
+						<% @passengers.each do |passenger| %>
+						<p>Name: <%= passenger.name %> </p>
+						<p>Email: <%= passenger.email %></p>
+						<hr>
+						<% end %>
 					</div>
 				</div>
-			
 			</div>
 		</div>
 	</div>

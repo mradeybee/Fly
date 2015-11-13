@@ -36,6 +36,16 @@ class Seed
       flight.save!
     }
   end
+
+  def self.booking
+    2.times{
+    booking = Booking.new
+    booking.flight_id = 1
+    booking.user_id = 1
+    booking.code = Faker::Code.ean
+    booking.save
+      }
+  end
 end
 
 

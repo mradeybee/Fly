@@ -5,7 +5,7 @@ class BookingsController < ApplicationController
   end
 
   def new
-   	@booking = Booking.new(new_booking_params)
+    @booking = Booking.new(new_booking_params)
     @booking.user_id = current_user.id if current_user
   end
 
@@ -28,8 +28,8 @@ class BookingsController < ApplicationController
         format.html { redirect_to :back,  notice: 'You must have at least one passenger' }
         format.json { render json: @booking.errors, status: :unprocessable_entity }
       elsif @booking.save 
-        FlyMail.booking_confirmed(this_user).deliver if current_user
-        format.html { redirect_to '/booking_confirmed', notice: 'Flight Booked Successfuly.' }
+        FlyMail.booking_confirmed(this_user, @booking).deliver if current_user
+        format.html { redirect_to booking_confirmed_path(@booking.id), notice: 'Flight Booked Successfuly.' }
         format.json { render :show, status: :created, location: @booking }
       end
     end
@@ -47,7 +47,7 @@ class BookingsController < ApplicationController
     end
   end
 
-    def destroy
+  def destroy
     @booking = Booking.find(params[:id])
     @booking.destroy
     respond_to do |format|
@@ -65,27 +65,29 @@ class BookingsController < ApplicationController
     end
   end
 
+  def booking_confirmed
+    @booking = Booking.find(params[:id])
+  end
+
   def get_code
     @booking = Booking.where(code: params[:code])
   end
 
- 	private
-	  def set_booking
-	    @booking = Booking.find(params[:id])
-	  end
+  private
+  def set_booking
+    @booking = Booking.find(params[:id])
+  end
 
-	  def booking_params
-      params.require(:booking).permit(:flight_id, :user_id, :no_of_passengers, :code, 
-        passengers_attributes:[:id,:name, :email,:_destroy])
-    end
+  def booking_params
+    params.require(:booking).permit(:flight_id, :user_id, :code, 
+      passengers_attributes:[:id,:name, :email,:_destroy])
+  end
 
-    def new_booking_params
-      params.permit(:flight_id)
-    end
+  def new_booking_params
+    params.permit(:flight_id)
+  end
 
-    def this_user
-      current_user if current_user
-    end
-
-   
+  def this_user
+    current_user if current_user
+  end   
 end

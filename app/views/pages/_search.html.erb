@@ -1,5 +1,5 @@
 <div class="row">
-<%= form_tag(index_search_url, method: :post, id: "seachform", class: "form-inline", remote: true) do %>
+  <%= form_tag(index_search_url, method: :post, id: "seachform", class: "form-inline", remote: true) do %>
   <div class = "home_search ">
     <h2 class = "search_txt">Search Flight  <i class="fa fa-plane fa-1x"></i></h2>
     <div class="form-group">
@@ -13,10 +13,10 @@
     </div>
     <%= submit_tag("Search", :name => nil, class: 'btn btn-info btn-md active boxx')%>
   </div>
-<% end %> 
-<div id= "search_result">
-  <% if @search %>
+  <% end %> 
+  <div id= "search_result">
+    <% if @search %>
       <%= render "pages/search_result" %> 
-  <% end %>
-</div>
+    <% end %>
+  </div>
 </div>
