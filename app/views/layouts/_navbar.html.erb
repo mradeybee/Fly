@@ -1,5 +1,4 @@
-<div class="row">
-<nav class="navbar navbar-fixed-top navi">
+<nav class="navbar navbar-default navbar-fixed-top navi">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -8,38 +7,37 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand logo btn btn-link" href="/">Fly</a>
+        <a class="navbar-brand logo btn btn-link" href="/">Fly</a>
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="/flights" class = "btn btn-link">All Flights</a></li>
-        <% if current_user %>
-          <li> <%=image_tag(current_user.image, class: "img-circle im")  %></li>
-         <li> <%= link_to current_user.name.split(" ").last.upcase, user_profile_path ,  class: "btn btn-link"  %></li>
-          <li > <%= link_to "Sign Out", sign_out_path, method: :delete, class: "btn btn-link" %></li>
-        <% else %>
-          <li id ="login"><a href= "#" data-toggle="modal"  data-target=".bs-example-modal-sm" class = "btn btn-link">Log In</a></li>
-        <% end %> 
+      <li><a href="/flights" class = "btn btn-link">All Flights</a></li>
+      <% if current_user %>
+      <li> <%=image_tag(current_user.image, class: "img-circle im")  %></li>
+      <li> <%= link_to current_user.name.split(" ").last.upcase, user_profile_path ,  class: "btn btn-link"  %></li>
+      <li > <%= link_to "Sign Out", sign_out_path, method: :delete, class: "btn btn-link" %></li>
+      <% else %>
+      <li id ="login"><a href= "#" data-toggle="modal"  data-target=".bs-example-modal-sm" class = "btn btn-link">Log In</a></li>
+      <% end %> 
       </ul>
     </div>
   </div>
 </nav>
-
 <div class="modal  fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <% session["cur_url"] = request.url %>
-        <h4 class="modal-title">Login</h5>
-      </div>
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <% session["cur_url"] = request.url %>
+              <h4 class="modal-title">Login</h4>
+        </div>
         <div class = "modal-body">
-        <div  align = "center">
-          <a id ="authfb" class="btn btn-primary active facebook" href="/auth/facebook">Facebook</a>
-           <a class="btn btn-danger active" href="/auth/google_oauth2">Google </a>
+            <div  align = "center">
+            <a id ="authfb" class="btn btn-primary active facebook" href="/auth/facebook">Facebook</a>
+            <a class="btn btn-danger active" href="/auth/google_oauth2">Google </a>
+            </div>
         </div>
-        </div>
+      </div>
     </div>
   </div>
-</div>
-</div>
+   
