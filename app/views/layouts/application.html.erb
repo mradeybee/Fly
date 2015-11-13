@@ -10,18 +10,19 @@
 		<body class="<%= "#{params[:controller]}-#{params[:action]}" %>">
 			<div class ="">
 				<%= render 'layouts/navbar' %>
-					<%= yield %>
+				<%= yield %>
 				<%= render 'layouts/footer' %> 
 			</div>
 
 			<div class="modal fade coming_soon" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content">
-    	<div class "modal-body" align="center">
-    		<i class="fa fa-ban text-danger fa-3x"></i><h5 class= "text-danger">Sorry, this feature will b available shortly</h5>
-    	</div>
-    </div>
-  </div>
-</div>
+				<div class="modal-dialog modal-sm">
+					<div class="modal-content">
+						<div class "modal-body" align="center">
+							<i class="fa fa-ban text-danger fa-3x"></i>
+							<h5 class= "text-danger">Sorry, this feature will b available shortly</h5>
+						</div>
+					</div>
+				</div>
+			</div>
 		</body>
 	</html>

@@ -1,45 +1,37 @@
-	<div class = "pages">
+<div class = "pages">
 	<div class = "container">
-		
 		<div class = "row">
-		
 			<div class = "col-md-5">
 				<div class="panel panel-primary ">
-				  <div class="panel-heading">
-				    <h3 class="panel-title">Flight Details</h3>
-				  </div>
-				  <div class="panel-body">
-				  	<p>Airline: <%=  params["airline"] %></p>
-				  	<p>Origin: <%=  params["origin"] %></p>
-				  	<p>Destination: <%=  params["destination"] %></p>
-				  	<p>Take Off Time: <%=  params["departure_time"] %></p>
-				  	<p>Take Off Date: <%=  params["departure_date"] %></p>
-				  	<p>Landing Time: <%=  params["arrival_time"] %></p>
-				  	<p>Landing Date: <%=  params["arrival_date"] %>
-				  	<h3 class="pull-right	">$<%=  params["price"] %> / person</h3>
-				  	</p>
-					   </ul>
-				  </div>
+					<div class="panel-heading">
+						<h3 class="panel-title">Flight Details</h3>
+						</div>
+						<div class="panel-body">
+						<p>Airline: <%=  params["airline"] %></p>
+						<p>Origin: <%=  params["origin"] %></p>
+						<p>Destination: <%=  params["destination"] %></p>
+						<p>Take Off Time: <%=  params["departure_time"] %></p>
+						<p>Take Off Date: <%=  params["departure_date"] %></p>
+						<p>Landing Time: <%=  params["arrival_time"] %></p>
+						<p>Landing Date: <%=  params["arrival_date"] %>
+						<h3 class="pull-right	">$<%=  params["price"] %> / person</h3>
+						</p>
+						</ul>
+					</div>
 				</div>
 			</div>
-
 			<div class = "col-md-7">
 				<div class="panel panel-primary ">
-				  <div class="panel-heading">
-				    <h3 class="panel-title">Book Flight</h3>
-				    	
-				  </div>
-				  	<% if !current_user %>
-								<p class="text-danger pull-right"> You will not be able to update this booking if you dont login</p>
+					<div class="panel-heading">
+						<h3 class="panel-title">Book Flight</h3>
+					</div>
+						<% if !current_user %>
+							<p class="text-danger pull-right"> You will not be able to update this booking if you dont login</p>
 						<% end %>
-				 					<%= render "book_form"%>							
-						</div>
-				  			
+						<%= render "book_form"%>							
+					</div>
+				</div>
 			</div>
-			</div>
-			
-
 		</div>
-
 	</div>
 </div>

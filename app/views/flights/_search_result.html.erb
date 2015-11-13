@@ -19,17 +19,14 @@
                                     <%= radio_button_tag(:flight_id, flights.id) %>
                                     <%= hidden_field_tag(:flight_id, flights.id) %>
                                   </div>
-
                                   <%= label_tag "flights_id_#{flights.id}", flights.airline %>
                                   <%= hidden_field_tag(:airline, flights.airline) %>
                                 </div>
                               </div>
-
                               <div class="">
                                 <div class="col-md-3">
                                   <div class="">
                                     <i class="fa fa-plane"></i>
-
                                     <h5><%= label_tag "#{flights.departure_date.strftime('%-l:%M%P')}" %></h5><%= hidden_field_tag(:departure_time, flights.departure_date.strftime("%-l:%M%P")) %>
 
                                     <p class=""><%= flights.departure_date.strftime("%d - %m - %Y")%></p>
@@ -37,10 +34,8 @@
 
                                     <%= flights.origin.name %>
                                     <%= hidden_field_tag(:origin, flights.origin.name) %></p>
-
                                   </div>
                                 </div>
-
                                 <div class="col-md-3">
                                   <i class="fa fa-plane fa-flip-vertical"></i>
                                   <h5><%= flights.arrival_date.strftime("%-l:%M%P") %></h5>
@@ -52,14 +47,12 @@
                                  <%= hidden_field_tag(:destination, flights.destination.name) %></p>
                                 </div>
                               </div>
-
                               <div class="col-md-3 search_price">
                                 <span class=""><%= (number_to_currency flights.price, delimiter: '.')  %></span>
                                  <%= hidden_field_tag(:price, flights.price, delimiter: '.')%>
                                 <span>/person</span>
                                 <p><%= submit_tag 'Select', class: "btn btn-primary" %></p>
                               </div> 
-
                             </div>
                           </div>
                         </li>
