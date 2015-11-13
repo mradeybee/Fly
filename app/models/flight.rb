@@ -6,9 +6,9 @@ class Flight < ActiveRecord::Base
   accepts_nested_attributes_for :passengers
   accepts_nested_attributes_for :bookings
 
-  def self.search(origin, destination, departure_date)
-    departure_date = "#{departure_date}%"
-    Flight.where("origin_id = ? AND destination_id = ? AND departure_date ILIKE ?", origin, destination, departure_date)
+  def self.search(origin, destination)
+    # departure_date = "#{departure_date}%"
+    Flight.where("origin_id = ? AND destination_id = ?", origin, destination)
   end
 
   def sort_by_date(departure_date)
