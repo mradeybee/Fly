@@ -1,6 +1,9 @@
 {
   "RSpec": {
     "coverage": {
+      "/home/andela/workspace/fly/spec/controllers/booking_spec.rb": [
+
+      ],
       "/home/andela/workspace/fly/spec/controllers/bookings_controller_spec.rb": [
         1,
         1,
@@ -57,10 +60,10 @@
         1,
         1,
         2,
-        27,
+        26,
         1,
-        27,
-        27,
+        26,
+        26,
         null,
         1,
         null
@@ -523,11 +526,6 @@
         1,
         null,
         null,
-        1,
-        1,
-        0,
-        null,
-        null,
         null
       ],
       "/home/andela/workspace/fly/app/controllers/flights_controller.rb": [
@@ -546,7 +544,7 @@
         null,
         null,
         1,
-        1,
+        0,
         null,
         null,
         1,
@@ -557,8 +555,8 @@
         null,
         null,
         1,
-        1,
-        1,
+        0,
+        0,
         0,
         0,
         0,
@@ -779,6 +777,10 @@
         1,
         1,
         null,
+        1,
+        0,
+        null,
+        null,
         null
       ],
       "/home/andela/workspace/fly/app/controllers/pages_controller.rb": [
@@ -807,6 +809,6 @@
         null
       ]
     },
-    "timestamp": 1447438805
+    "timestamp": 1447441327
   }
 }

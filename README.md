@@ -2,21 +2,21 @@
 [![Coverage Status](https://coveralls.io/repos/andela-aadepoju/Fly/badge.svg?branch=master&service=github)](https://coveralls.io/github/andela-aadepoju/Fly?branch=master)
 
 
-* Introduction
+##Introduction
 
 Hello there, Fly is a flight booking system and it is written with rails. Just incase you dont know how rails applications walk, dont worry, I will work you through the installation process and the app usage too.
 
-* Features
+##Features
 
 This app enebles you to saerch for already registered flights and book the flight that you want. You can search for flights with or without dates, but your origin location and your destination must be supplied. On the booking page, you will be able to create fields for any number of passengers you want to book. On successful booking of a flight, you will recieve a booking-success email. 
 
 The option of paying via paypal is a work in progress and it should be completed in few days time.Other features include cancelling a booking before the day of the flight and also managing the number of passengers on a booking. You will also recieve a booking update email if you choose to manage your app. Check out the cool app here! Bug discoveries, suggestions and general feedback will always be appreciated.
 
-* Getting Started
+##Getting Started
 
 Now lets run this app. First you need to install <a href="https://www.ruby-lang.org" target ="blank">Ruby</a>  and <a href="http://rubyonrails.org/" target="blank">Rails</a>
 
-* Dependencies
+##Dependencies
 
 This project is implemented using the rails framework and as such in order to effectively run this project locally, you need to have the version 4 of Rails running on your local development machine. You also need to have at least Ruby 2.2.3 installed to have an awesome experince of the app, as rails is written in ruby.
 
@@ -48,7 +48,7 @@ or
 rails server
 ```
 
-* Running the tests.
+##Running the tests.
 
 After all the setting up as mentioned above, you can run the tests. The tests are driven by rspec, capybara and selenium. You can get them fired up by running the following command from the terminal.
 ```
