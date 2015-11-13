@@ -5,20 +5,5 @@ class Flight < ActiveRecord::Base
   has_many :passengers, through: :bookings
   accepts_nested_attributes_for :passengers
   accepts_nested_attributes_for :bookings
-
-  def self.search(origin, destination,departure_date)
-    Flight.where(origin: origin, destination: destination).where("strftime('%Y-%m-%d', departure_date)=?", departure_date)
-  end
-
-  def sort_by_date(departure_date)
-  	Flight.where("strftime('%Y-%m-%d', departure_date)=?", departure_date)
-  end
-  private
-
-  def that_origin_is_not_destination
-    if origin == destination
-      errors.add(:origin, "You can not fly to where you are, can you?")
-    end
-  end
 end
  

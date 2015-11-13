@@ -9,16 +9,14 @@
 .home_result{
    margin-bottom: 80px;
 }
-
-.home_bg{
-  position: fixed;
+.slid{
+  position: relative;
+  height: 100%;
 }
-
 .welcome-txt{
-
   position: absolute;
   color: #fff;
-  top: 265px;
+  top: 275px;
   background: linear-gradient(rgba(0,0,0,.8) 30%, rgba(0,0,0,.8) 30%);
   margin-right: 15px;
   padding-left: 40px;
@@ -45,7 +43,7 @@
 }
 .home_search{
   position: absolute;
-  top: 335px;
+  top: 350px;
   background: linear-gradient(rgba(0,0,0,.8) 50%, rgba(0,0,0,.8) 70%);
   margin-left: 15px;  
   margin-right: 15px;
