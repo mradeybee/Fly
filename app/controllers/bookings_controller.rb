@@ -51,7 +51,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @booking.destroy
     respond_to do |format|
-      format.html { redirect_to bookings_url, notice: 'Booking was successfully Canceled.' }
+      format.html { redirect_to user_profile, notice: 'Booking was successfully Canceled.' }
       format.json { head :no_content }
     end
   end
