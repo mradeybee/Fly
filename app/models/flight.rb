@@ -9,5 +9,9 @@ class Flight < ActiveRecord::Base
   def self.search(origin, destination,departure_date)
     Flight.where(origin: origin, destination: destination).where("strftime('%Y-%m-%d', departure_date)=?", departure_date)
   end
+
+  def sort_by_date(departure_date)
+  	Flight.where("strftime('%Y-%m-%d', departure_date)=?", departure_date)
+  end
 end
  
