@@ -1,3 +1,6 @@
+require "spec_helper"
+
+
 def set_valid_omniauth
   OmniAuth.config.add_mock(:facebook, mock_fb_oauth_response)
 end

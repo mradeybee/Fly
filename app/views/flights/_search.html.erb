@@ -1,26 +1,19 @@
 <%= form_tag(index_search_url, method: :post, class: "form-inline", remote: true) do %>
   <div class = "alls" align = "center">
     <h2 class = "text-primary">Search Flight <i class="fa fa-plane fa-1x text-info"></i></h2>
-
     <div class="form-group">
       <%= collection_select :flight, :origin_id, Airport.all, :id, :name, {include_blank: 'From Where?'}, {class: 'form-control origin boxx'}%>
     </div>
-
     <div class="form-group">
       <%= collection_select :flight, :destination_id, Airport.all, :id, :name, {include_blank: 'To Where?'}, {class: 'form-control destination  boxx '}%>
     </div>
-
-
     <div class=" form-group input-daterange" data-provide = 'datepicker'>
-
       <%= text_field :flight, :departure_date,  id: 'departure_date', placeholder: "Departure Date", class: 'form-control boxx'%>
     </div>
-
     <%= submit_tag("Search", :name => nil,class: 'btn btn-info btn-md active boxx')%>
   </div>
 <% end %> 
-
 <div id ="search_result"></div>
-  <% if @search %>
-    <%= render "flight/search_result" %>
-  <% end %>
+<% if @search %>
+  <%= render "flight/search_result" %>
+<% end %>
