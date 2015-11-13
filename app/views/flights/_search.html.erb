@@ -7,7 +7,7 @@
     <div class="form-group">
       <%= collection_select :flight, :destination_id, Airport.all, :id, :name, {include_blank: 'To Where?'}, {class: 'form-control destination  boxx '}%>
     </div>
-    <div class=" form-group input-daterange" data-provide = 'datepicker'>
+    <div class=" form-group input-daterange" data-provide = 'datepicker' data-date-format="yyyy-mm-dd">
       <%= text_field :flight, :departure_date,  id: 'departure_date', placeholder: "Departure Date", class: 'form-control boxx'%>
     </div>
     <%= submit_tag("Search", :name => nil,class: 'btn btn-info btn-md active boxx')%>

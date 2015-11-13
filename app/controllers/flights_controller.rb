@@ -25,7 +25,7 @@ class FlightsController < ApplicationController
 
   def search(page)
     parameter = params[:flight]
-    @flights = Flight.search(parameter[:origin_id], parameter[:destination_id])
+    @flights = Flight.search(parameter[:origin_id], parameter[:destination_id], parameter[:departure_date])
     respond_to do |format|
       unless @flights.empty?
         format.json { render :show, status: :created, location: @flights }
