@@ -53,5 +53,16 @@ RSpec.feature "UserView"  do
       expect(User.count).not_to eq 1
       expect(page).not_to have_content "USER MOCK"
     end
+
+    it "Logs out " do
+      expect(User.count).to eq 0
+      set_valid_omniauth
+      visit "/"
+      click_on "Log In"
+      click_on 'Facebook'
+      expect(User.count).to eq 1
+      click_on "Sign Out"
+      expect(page).to have_content "Please Sign Up or Login via the login button"
+    end
   end
 end
