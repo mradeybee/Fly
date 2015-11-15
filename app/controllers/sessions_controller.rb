@@ -9,6 +9,11 @@ class SessionsController < ApplicationController
     redirect_to session["cur_url"]
   end
 
+  def failure
+    flash[:notice] = "Gerrahia my friend!"
+    redirect_to root_path
+  end
+
   def destroy
     session[:user_id] = nil
     session[:omniauth] = nil
