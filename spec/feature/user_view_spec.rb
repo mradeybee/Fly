@@ -33,7 +33,7 @@ RSpec.feature "UserView"  do
   end
 
 
-   describe "Log In" do
+   describe "Log In/Log out" do
     it "Logs in with facebook" do
       expect(User.count).to eq 0
       set_valid_omniauth
@@ -64,5 +64,27 @@ RSpec.feature "UserView"  do
       click_on "Sign Out"
       expect(page).to have_content "Please Sign Up or Login via the login button"
     end
+
   end
+
+   describe "Search Flight", js: true do
+    it "Search for flight without date " do
+      visit "/"
+      select "Akanu Ibiam International Airport, Enugu", from: "flight_origin_id"
+      select "Port Harcourt International Airport, Port Harcourt", from: "flight_destination_id"
+      click_on 'Search'
+      expect(page).to have_content "No Flights Found"
+   end
+
+    it "Search for flight with date " do
+      visit "/"
+      flight= Flight.last
+      select flight.origin.name, from: "flight_origin_id"
+      select flight.destination.name, from: "flight_destination_id"
+      fill_in('departure_date', :with => flight.departure_date.strftime("%Y - %m - %d"))
+      click_on 'Search'
+      expect(page).to have_content "Search results for flights from"
+   end
+
+ end
 end
