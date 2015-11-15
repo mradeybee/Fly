@@ -31,4 +31,27 @@ RSpec.feature "UserView"  do
       expect(page).to have_content 'Book Flight'
     end
   end
+
+
+   describe "Log In" do
+    it "Logs in with facebook" do
+      expect(User.count).to eq 0
+      set_valid_omniauth
+      visit "/"
+      click_on "Log In"
+      click_on 'Facebook'
+      expect(User.count).to eq 1
+      expect(page).to have_content "USER MOCK"
+    end
+
+    it "it doesn't log in with invalid facebook response" do
+      expect(User.count).to eq 0
+      set_invalid_omniauth
+      visit "/"
+      click_on "Log In"
+      click_on 'Facebook'
+      expect(User.count).not_to eq 1
+      expect(page).not_to have_content "USER MOCK"
+    end
+  end
 end
