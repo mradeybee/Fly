@@ -50,7 +50,7 @@
         1,
         1,
         null,
-        4,
+        3,
         null,
         1,
         null,
@@ -287,23 +287,6 @@
         1,
         null
       ],
-      "/home/andela/workspace/fly/spec/support/wait_for_ajax.rb": [
-        1,
-        1,
-        0,
-        0,
-        null,
-        null,
-        null,
-        1,
-        0,
-        null,
-        null,
-        null,
-        1,
-        1,
-        null
-      ],
       "/home/andela/workspace/fly/spec/support/omniauth_helpers.rb": [
         1,
         1,
@@ -440,9 +423,7 @@
         0,
         0,
         0,
-        0,
         null,
-        0,
         0,
         0,
         null,
@@ -549,8 +530,6 @@
         null,
         null,
         null,
-        1,
-        0,
         null,
         null,
         1,
@@ -898,6 +877,6 @@
         null
       ]
     },
-    "timestamp": 1447621271
+    "timestamp": 1447623336
   }
 }
