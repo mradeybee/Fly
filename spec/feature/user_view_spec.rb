@@ -86,5 +86,16 @@ RSpec.feature "UserView"  do
       expect(page).to have_content "Search results for flights from"
    end
 
+     it "Search for flight with date on All flight page " do
+      visit "/"
+      click_on "All Flights"
+      flight= Flight.last
+      select flight.origin.name, from: "flight_origin_id"
+      select flight.destination.name, from: "flight_destination_id"
+      fill_in('departure_date', :with => flight.departure_date.strftime("%Y - %m - %d"))
+      click_on 'Search'
+      expect(page).to have_content "Search results for flights from"
+   end
+
  end
 end
