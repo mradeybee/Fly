@@ -26,11 +26,9 @@ class BookingsController < ApplicationController
     respond_to do |format|
       if booking_params[:passengers_attributes].nil?
         format.html { redirect_to :back,  notice: 'You must have at least one passenger' }
-        format.json { render json: @booking.errors, status: :unprocessable_entity }
       elsif @booking.save 
         FlyMail.booking_confirmed(this_user, @booking).deliver if current_user
         format.html { redirect_to booking_confirmed_path(@booking.id), notice: 'Flight Booked Successfuly.' }
-        format.json { render :show, status: :created, location: @booking }
       end
     end
   end
@@ -38,7 +36,7 @@ class BookingsController < ApplicationController
   def update
     respond_to do |format|
       if booking_params[:passengers_attributes].include?(:_destroy => 1)
-        format.html { redirect_to :back,  notice: 'You must have at least one passenger' }
+        format.html { redirect_to :back}
         format.json { render json: @booking.errors, status: :unprocessable_entity } 
       elsif  @booking.update(booking_params)
         format.html { redirect_to :back, notice: 'Booking was successfully updated.' }
