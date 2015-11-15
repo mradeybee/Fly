@@ -8,9 +8,7 @@ class FlightsController < ApplicationController
     end
   end
 
- def flight_search
-    search("flights/_search_result")   
- end 
+ 
 
  def index_search
    search("pages/index")

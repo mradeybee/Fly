@@ -4,11 +4,11 @@
 
 ##Introduction
 
-Hello there, Fly is a flight booking system and it is written with rails. Just incase you dont know how rails applications walk, dont worry, I will work you through the installation process and the app usage too.
+Hello there, Fly is a flight booking system and it is written with rails. Just incase you dont know how rails applications walk, dont worry, I will walk you through the installation process and the app usage too.
 
 ##Features
 
-This app enebles you to saerch for already registered flights and book the flight that you want. You can search for flights with or without dates, but your origin location and your destination must be supplied. On the booking page, you will be able to create fields for any number of passengers you want to book. On successful booking of a flight, you will recieve a booking-success email. 
+This app enebles you to search for already registered flights and book the flight that you want. You can search for flights with date, your origin location and your destination. On the booking page, you will be able to create fields for any number of passengers you want to book. On successful booking of a flight, you will recieve a booking-success email. 
 
 The option of paying via paypal is a work in progress and it should be completed in few days time.Other features include cancelling a booking before the day of the flight and also managing the number of passengers on a booking. You will also recieve a booking update email if you choose to manage your app. Check out the cool app here! Bug discoveries, suggestions and general feedback will always be appreciated.
 
