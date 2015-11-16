@@ -8,8 +8,6 @@ class FlightsController < ApplicationController
     end
   end
 
- 
-
  def index_search
    search("pages/index")
  end
