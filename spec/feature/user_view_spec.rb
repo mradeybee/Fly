@@ -89,7 +89,7 @@ RSpec.feature "UserView"  do
      it "Search for flight with date on All flight page " do
       visit "/"
       click_on "All Flights"
-      flight= Flight.last
+      flight= Flight.first
       select flight.origin.name, from: "flight_origin_id"
       select flight.destination.name, from: "flight_destination_id"
       fill_in('departure_date', :with => flight.departure_date.strftime("%Y - %m - %d"))
@@ -107,6 +107,7 @@ RSpec.feature "UserView"  do
       click_on 'Facebook'
       sleep 2
       first(:button, "Select").click
+      sleep 2
       click_on 'Add Another passenger'
       fill_in('name', :with => 'Adebayo')
       fill_in('email', :with => 'mradeybee@gmail.com')
@@ -119,6 +120,7 @@ RSpec.feature "UserView"  do
       visit "/flights"
       sleep 2
       first(:button, "Select").click
+      sleep 2
       click_on 'Add Another passenger'
       fill_in('name', :with => 'Adebayo')
       fill_in('email', :with => 'mradeybee@gmail.com')
