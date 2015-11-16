@@ -27,7 +27,7 @@ RSpec.feature "UserView"  do
       
       click_on 'Book Now'
 
-      click_on 'Add Another passenger'
+      click_on 'Add Passenger'
       expect(page).to have_content 'Book Flight'
     end
   end
@@ -108,7 +108,7 @@ RSpec.feature "UserView"  do
       sleep 2
       first(:button, "Select").click
       sleep 2
-      click_on 'Add Another passenger'
+      click_on 'Add Passenger'
       fill_in('name', :with => 'Adebayo')
       fill_in('email', :with => 'mradeybee@gmail.com')
       click_on 'Book Now'
@@ -121,7 +121,7 @@ RSpec.feature "UserView"  do
       sleep 2
       first(:button, "Select").click
       sleep 2
-      click_on 'Add Another passenger'
+      click_on 'Add Passenger'
       fill_in('name', :with => 'Adebayo')
       fill_in('email', :with => 'mradeybee@gmail.com')
       click_on 'Book Now'
