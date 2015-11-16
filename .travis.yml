@@ -1,3 +1,9 @@
-machine:
-  ruby:
-    version: 2.2.3
+# machine:
+#   ruby:
+#     version: 2.2.3
+
+
+language: ruby
+rvm:
+-2.2.3
+cache: bundler
