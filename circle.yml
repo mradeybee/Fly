@@ -10,5 +10,5 @@ test:
   override:
   - bundle exec rspec
 dependencies:
-	pre:
-		- sudo apt-get update; sudo apt-get install firefox=39.0.3+build2-0ubuntu0.12.04.1
+  pre:
+    - sudo apt-get update; sudo apt-get install firefox=39.0.3+build2-0ubuntu0.12.04.1
