@@ -1,11 +1,6 @@
-deployment:
-  develop:
-    branch: master
-    heroku:
-      appname: fly
 machine:
   ruby:
     version: 2.2.3
 test:
   override:
-  - bundle exec rspec
+    - rake spec
