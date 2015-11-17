@@ -18,21 +18,6 @@ RSpec.feature "UserView"  do
     end
   end
 
-  describe "Visits All flight and booking page" do
-    it "gets to flight booking page" do
-      visit "/"
-      click_on "All Flights"
-
-      first(:button, "Select").click
-      
-      click_on 'Book Now'
-
-      click_on 'Add Passenger'
-      expect(page).to have_content 'Book Flight'
-    end
-  end
-
-
    describe "Log In/Log out" do
     it "Logs in with facebook" do
       expect(User.count).to eq 0

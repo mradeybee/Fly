@@ -27,7 +27,7 @@ class BookingsController < ApplicationController
       if booking_params[:passengers_attributes].nil?
         format.html { redirect_to :back,  notice: 'You must have at least one passenger' }
       elsif @booking.save 
-        FlyMail.booking_confirmed(this_user, @booking).deliver if current_user
+        FlyMail.booking_confirmed(this_user, @booking).deliver_now if current_user
         format.html { redirect_to booking_confirmed_path(@booking.id), notice: 'Flight Booked Successfuly.' }
       end
     end
