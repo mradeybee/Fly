@@ -3,4 +3,4 @@ machine:
     version: 2.2.3
 test:
   override:
-    - rake spec
+    - bundle exec rake spec
