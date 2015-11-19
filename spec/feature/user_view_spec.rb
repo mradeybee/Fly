@@ -11,14 +11,14 @@ RSpec.feature "UserView"  do
     Seed.flights
   end
 
-  describe "Visit home page", :type => :feature do
+  describe "Visit home page", type: :feature do
     it "Visits home page" do
       visit "/"
       expect(page).to have_content 'Welcome'
     end
   end
 
-   describe "Log In/Log out" do
+  describe "Log In/Log out" do
     it "Logs in with facebook" do
       expect(User.count).to eq 0
       set_valid_omniauth
@@ -49,10 +49,9 @@ RSpec.feature "UserView"  do
       click_on "Sign Out"
       expect(page).to have_content "Please Sign Up or Login via the login button"
     end
-
   end
 
-   describe "Search Flight", js: true do
+  describe "Search Flight", js: true do
     it "Search for flight without date " do
       visit "/"
       select "Akanu Ibiam International Airport, Enugu", from: "flight_origin_id"
@@ -66,26 +65,25 @@ RSpec.feature "UserView"  do
       flight= Flight.last
       select flight.origin.name, from: "flight_origin_id"
       select flight.destination.name, from: "flight_destination_id"
-      fill_in('departure_date', :with => flight.departure_date.strftime("%Y - %m - %d"))
+      fill_in('departure_date', with: flight.departure_date.strftime("%Y - %m - %d"))
       click_on 'Search'
       expect(page).to have_content "Search results for flights from"
    end
 
-     it "Search for flight with date on All flight page " do
+    it "Search for flight with date on All flight page " do
       visit "/"
       click_on "All Flights"
       flight= Flight.first
       select flight.origin.name, from: "flight_origin_id"
       select flight.destination.name, from: "flight_destination_id"
-      fill_in('departure_date', :with => flight.departure_date.strftime("%Y - %m - %d"))
+      fill_in('departure_date', with: flight.departure_date.strftime("%Y - %m - %d"))
       click_on 'Search'
       expect(page).to have_content "Search results for flights from"
-   end
-
- end
+    end
+  end
 
   describe "Book Flight", js: true do
-     it "Logs in and books a flight" do
+    it "Logs in and books a flight" do
       set_valid_omniauth
       visit "/flights"
       click_on "Log In"
@@ -93,22 +91,22 @@ RSpec.feature "UserView"  do
       sleep 2
       first(:button, "Select").click
       sleep 2
-      click_on 'Add Passenger'
-      fill_in('name', :with => 'Adebayo')
-      fill_in('email', :with => 'mradeybee@gmail.com')
+      click_link('Add Passenger')
+      fill_in('name', with: 'Adebayo')
+      fill_in('email', with: 'mradeybee@gmail.com')
       click_on 'Book Now'
       expect(page).to have_content "successful"
     end
 
-      it "Books a flight without login" do
+    it "Books a flight without login", js: true do
       set_valid_omniauth
       visit "/flights"
       sleep 2
       first(:button, "Select").click
       sleep 2
-      click_on 'Add Passenger'
-      fill_in('name', :with => 'Adebayo')
-      fill_in('email', :with => 'mradeybee@gmail.com')
+      click_link('Add Passenger')
+      fill_in('name', with: 'Adebayo')
+      fill_in('email', with: 'mradeybee@gmail.com')
       click_on 'Book Now'
       expect(page).to have_content "successful"
     end
