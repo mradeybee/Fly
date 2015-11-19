@@ -81,35 +81,4 @@ RSpec.feature "UserView"  do
       expect(page).to have_content "Search results for flights from"
     end
   end
-
-  describe "Book Flight", js: true do
-    it "Logs in and books a flight" do
-      set_valid_omniauth
-      visit "/flights"
-      click_on "Log In"
-      click_on 'Facebook'
-      sleep 2
-      first(:button, "Select").click
-      sleep 2
-      # save_and_open_page
-      find('a .add_passenger').click
-      fill_in('name', with: 'Adebayo')
-      fill_in('email', with: 'mradeybee@gmail.com')
-      click_on 'Book Now'
-      expect(page).to have_content "successful"
-    end
-
-    it "Books a flight without login" do
-      set_valid_omniauth
-      visit "/flights"
-      sleep 2
-      first(:button, "Select").click
-      sleep 2
-      find('a .add_passenger').click
-      fill_in('name', with: 'Adebayo')
-      fill_in('email', with: 'mradeybee@gmail.com')
-      click_on 'Book Now'
-      expect(page).to have_content "successful"
-    end
-  end
 end

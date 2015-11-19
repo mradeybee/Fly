@@ -14,11 +14,6 @@ class FlightsController < ApplicationController
 
   private
   
-  def search_params
-    params.require(:flight).permit(:origin, :destination, :departure_date, :no_of_passenegers, 
-      :flight_attributes[:origin_id, :destination_id, :departure_date, :no_of_passenegers])
-  end
-
   def search(page)
     parameter = params[:flight]
     @flights = Flight.search(parameter[:origin_id], parameter[:destination_id], parameter[:departure_date])
