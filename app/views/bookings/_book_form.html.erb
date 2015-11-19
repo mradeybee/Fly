@@ -7,7 +7,7 @@
 		<% end %>
 		<br>
 		<div class="links">
-			<%= link_to_add_association 'Add Passenger',f, :passengers, :class => 'btn btn-primary add' %> 
+			<%= link_to_add_association content_tag(:span, 'Add Passenger', class: "add_passenger"), f, :passengers, :class => 'btn btn-primary add' %> 
 		</div>
 		</div>
 		<div class="panel-footer">
