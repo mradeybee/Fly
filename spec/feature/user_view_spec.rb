@@ -91,20 +91,21 @@ RSpec.feature "UserView"  do
       sleep 2
       first(:button, "Select").click
       sleep 2
-      click_link('Add Passenger')
+      # save_and_open_page
+      find('a .add_passenger').click
       fill_in('name', with: 'Adebayo')
       fill_in('email', with: 'mradeybee@gmail.com')
       click_on 'Book Now'
       expect(page).to have_content "successful"
     end
 
-    it "Books a flight without login", js: true do
+    it "Books a flight without login" do
       set_valid_omniauth
       visit "/flights"
       sleep 2
       first(:button, "Select").click
       sleep 2
-      click_link('Add Passenger')
+      find('a .add_passenger').click
       fill_in('name', with: 'Adebayo')
       fill_in('email', with: 'mradeybee@gmail.com')
       click_on 'Book Now'
