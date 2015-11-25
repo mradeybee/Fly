@@ -33,6 +33,8 @@ group :development, :test do
   gem 'capybara', :git => 'git://github.com/jnicklas/capybara.git'
   gem 'selenium-webdriver'
   gem 'database_cleaner'
+  gem 'poltergeist'
+  gem 'phantomjs', :require => 'phantomjs/poltergeist'
 end
 group :development do
   gem 'web-console', '~> 2.0'
