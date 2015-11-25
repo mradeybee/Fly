@@ -1,5 +1,5 @@
 <div class="panel-body passenger-booking">
-	<%= form_for(@booking) do |f| %>
+	<%= form_for @booking, :html => {:id => "booking_form"} do |f| %>
 		<%= f.hidden_field(:flight_id)%>
 		<%= f.hidden_field(:user_id) %>
 		<%= f.fields_for :passengers do |passenger| %>
@@ -11,7 +11,7 @@
 		</div>
 		</div>
 		<div class="panel-footer">
-			<%= submit_tag "Book Now", class: "btn btn-primary book" %>
+			<%= link_to "Book Now", "#", :onclick => "$('#booking_form').submit()", class: "btn btn-primary book"  %>
 			<a class = "btn btn-link pull-right"><%= notice %></a>
 		</div>
 	<% end %>

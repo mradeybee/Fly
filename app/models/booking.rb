@@ -9,4 +9,5 @@ class Booking < ActiveRecord::Base
      raw = [('A'..'Z'),(0..9)].map { |i| i.to_a }.flatten
      self.code = (0...20).map { raw[rand(raw.length)] }.join
   end
+
 end

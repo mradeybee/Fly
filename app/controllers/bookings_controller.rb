@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
-
+  include BookingsHelper
   def index
   end
 
@@ -35,8 +35,8 @@ class BookingsController < ApplicationController
 
   def update
     respond_to do |format|
-      if booking_params[:passengers_attributes].include?(:_destroy => 1)
-        format.html { redirect_to :back}
+     if delete_all_passengers(booking_params[:passengers_attributes])
+        format.html { redirect_to :back,  notice: 'Please cancel your booking instead '}
         format.json { render json: @booking.errors, status: :unprocessable_entity } 
       elsif  @booking.update(booking_params)
         format.html { redirect_to :back, notice: 'Booking was successfully updated.' }
@@ -47,10 +47,11 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking = Booking.find(params[:id])
-    @booking.destroy
-    respond_to do |format|
-      format.html { redirect_to flight_path, notice: 'Booking was successfully Canceled.' }
-      format.json { head :no_content }
+    if @booking.destroy
+      respond_to do |format|
+        format.html { redirect_to user_profile_path, notice: 'Booking was successfully Canceled.' }
+        format.json { head :no_content }
+      end
     end
   end
 

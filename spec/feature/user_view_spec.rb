@@ -81,4 +81,19 @@ RSpec.feature "UserView"  do
       expect(page).to have_content "Search results for flights from"
     end
   end
+
+  describe "Book Flight", js: true do
+    it "Books a fligth" do
+      visit "/flights"
+      first(:button, "Select").click
+      click_on "Log In"
+      click_on 'Facebook'
+      sleep 2
+      click_link ('Add Passenger')
+      fill_in('name', with: 'Adebayo')
+      fill_in('email', with: 'mradeybee@gmail.com')
+      click_on 'Book Now'
+      expect(page).to have_content "successful"
+   end
+  end
 end
