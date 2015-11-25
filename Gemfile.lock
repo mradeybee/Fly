@@ -64,6 +64,7 @@ GEM
     byebug (6.0.2)
     childprocess (0.5.7)
       ffi (~> 1.0, >= 1.0.11)
+    cliver (0.3.2)
     cocoon (1.2.6)
     coderay (1.1.0)
     coffee-rails (4.1.0)
@@ -151,6 +152,12 @@ GEM
       rest-client
     pdf-core (0.6.0)
     pg (0.18.3)
+    phantomjs (1.9.8.0)
+    poltergeist (1.8.1)
+      capybara (~> 2.1)
+      cliver (~> 0.3.1)
+      multi_json (~> 1.0)
+      websocket-driver (>= 0.2.0)
     prawn (2.0.2)
       pdf-core (~> 0.6.0)
       ttfunk (~> 1.4.0)
@@ -273,6 +280,9 @@ GEM
       railties (>= 4.0)
       sprockets-rails (>= 2.0, < 4.0)
     websocket (1.2.2)
+    websocket-driver (0.6.3)
+      websocket-extensions (>= 0.1.0)
+    websocket-extensions (0.1.2)
     will_paginate (3.0.7)
     will_paginate-bootstrap (1.0.1)
       will_paginate (>= 3.0.3)
@@ -301,6 +311,8 @@ DEPENDENCIES
   omniauth-google-oauth2
   paypal-express
   pg
+  phantomjs
+  poltergeist
   prawn
   pry
   puma

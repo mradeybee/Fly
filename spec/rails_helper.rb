@@ -20,4 +20,8 @@ RSpec.configure do |config|
   config.after(:each) { DatabaseCleaner.clean }
   
   config.infer_spec_type_from_file_location!
+
+end
+ Capybara.register_driver :poltergeist do |app|
+    Capybara::Poltergeist::Driver.new(app, :phantomjs => Phantomjs.path)
 end

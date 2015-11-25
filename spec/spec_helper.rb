@@ -1,4 +1,5 @@
 require 'coveralls'
+require 'phantomjs'
 Coveralls.wear!
 
 RSpec.configure do |config|
