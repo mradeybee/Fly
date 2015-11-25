@@ -30,8 +30,23 @@ RSpec.describe BookingsController, :type => :controller do
     end
   end
 
-  it "renders the new template" do
+    it "renders the new template" do
       get :new
       expect(response).to render_template("new")
     end
+
+   # describe "update" do
+    # it "disalows user to delete all passengers in a booking" do
+    #   booking_params = {"flight_id"=>"2", "user_id"=>"1", "passengers_attributes"=>
+    # {"0"=>{"name"=>"ade", "email"=>"ade@c.b", "_destroy"=>"1", "id"=>"15"}}}
+      # put :update
+      # expect(response).to redirect_to(user_profile_path)
+    # end
+  # end
+
+  # it "renders the new template" do
+  #     get :new
+  #     expect(response).to render_template("new")
+  #   end  
+
 end
