@@ -56,6 +56,7 @@ RSpec.feature "UserView"  do
       visit "/"
       select "Akanu Ibiam International Airport, Enugu", from: "flight_origin_id"
       select "Port Harcourt International Airport, Port Harcourt", from: "flight_destination_id"
+      fill_in('departure_date', with: "1990 - 11 - 1")
       click_on 'Search'
       expect(page).to have_content "No Flights Found"
    end
