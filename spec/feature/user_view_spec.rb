@@ -119,7 +119,9 @@ RSpec.feature "UserView"  do
       click_on 'Manage'
       fill_in('name', with: 'Adebee')
       click_on 'Book Now'
+      sleep 2
       click_on 'Delete'
+      click_on 'Book Now'
       click_on 'Cancel Booking'
       page.driver.browser.accept_confirm
       expect(page).to have_content "Booking was successfully Canceled."
