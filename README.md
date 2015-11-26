@@ -1,5 +1,5 @@
 # FLY
-[![Coverage Status](https://coveralls.io/repos/andela-aadepoju/Fly/badge.svg?branch=master&service=github)](https://coveralls.io/github/andela-aadepoju/Fly?branch=master) [![Code Climate](https://codeclimate.com/github/andela-aadepoju/Fly/badges/gpa.svg)](https://codeclimate.com/github/andela-aadepoju/Fly) [![Test Coverage](https://codeclimate.com/github/andela-aadepoju/Fly/badges/coverage.svg)](https://codeclimate.com/github/andela-aadepoju/Fly/coverage)
+[![Code Climate](https://codeclimate.com/github/andela-aadepoju/Fly/badges/gpa.svg)](https://codeclimate.com/github/andela-aadepoju/Fly) [![Test Coverage](https://codeclimate.com/github/andela-aadepoju/Fly/badges/coverage.svg)](https://codeclimate.com/github/andela-aadepoju/Fly/coverage)
 
 
 ##Introduction
