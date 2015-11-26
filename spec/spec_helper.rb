@@ -13,4 +13,18 @@ RSpec.configure do |config|
    
     mocks.verify_partial_doubles = true
   end
+
+
+	# Capybara.configure do |config|
+	#   # config.run_server = false
+	#   # config.default_driver = :selenium
+	#   # config.app_host = 'http://localhost:3000' # change url
+	# end
+
+	require 'capybara/poltergeist'
+	Capybara.javascript_driver = :poltergeist
+	Capybara.register_driver :poltergeist do |app|
+  	Capybara::Poltergeist::Driver.new(app, {js_errors:true, port:44678+ENV['RAILS_ENV'].to_i, phantomjs_options:['--proxy-type=none'], timeout:180})
+	end
+
 end

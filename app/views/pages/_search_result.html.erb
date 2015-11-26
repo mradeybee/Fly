@@ -1,15 +1,11 @@
   <div class="home_result">
-  <div class= "container">
-    <div class="row">
    <div class="panel-body">
-
     <% if @flights %>
      <% if !@flights.empty? %>
      <% first_flight = @flights.first %>
- <h2>Search results for flights from <%= first_flight.origin.location %> to <%= first_flight.destination.location %></h2>
-<hr>  
+      <h2 class="text-info">Search results for flights from <%= first_flight.origin.location %> to <%= first_flight.destination.location %></h2>
+        <hr>  
         <% for flight in @flights %>
-
           <%= form_tag("/bookings/new", method: :get) do%> 
             <li class="list-group-item flight-list">
               <div class="">
@@ -58,12 +54,10 @@
           <% end %>
         <% end %>
       <% else %>
-        <h4>No Flights Found</h4>
+        <h4  class="text-info">No Flights Found</h4>
       <% end %>
       <br> <%= link_to 'All Flights', flights_path, class: "btn btn-primary pull-right"%>
       <%= link_to 'close', :back, class: "btn btn-danger pull-left"%>
     <% end %>
   </div>
-</div>
-</div>
 </div>

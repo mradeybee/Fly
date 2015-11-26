@@ -7,16 +7,23 @@
   margin-bottom: 80px;
 } 
 .home_result{
-   margin-bottom: 80px;
+position: relative;
+    top: 300px;
+    padding-bottom: 40px;
+    max-width: 100%;
+    margin-bottom: none;
+  background:#fff;
+
 }
 .slid{
   position: relative;
-  height: 100%;
+  min-height: 100%;
+  min-width: 100%;
 }
 .welcome-txt{
-  position: absolute;
   color: #fff;
-  top: 275px;
+  position: absolute;
+  top: 225px;
   background: linear-gradient(rgba(0,0,0,.8) 30%, rgba(0,0,0,.8) 30%);
   margin-right: 15px;
   padding-left: 40px;
@@ -34,7 +41,6 @@
   border-bottom: 10px solid #2E9AFE;
   padding-left: 25px;
   padding-right: 25px;
-
 }
 .logo{
   font-size: 30px;
@@ -42,17 +48,15 @@
   font-family: sans-serif;
 }
 .home_search{
-  position: absolute;
-  top: 350px;
+   position: relative;
+    top: 350px;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
   background: linear-gradient(rgba(0,0,0,.8) 50%, rgba(0,0,0,.8) 70%);
-  margin-left: 15px;  
-  margin-right: 15px;
   border-radius: 3px;
-  padding-left: 40px;
-  padding-bottom: 20px;
-  padding-right: 40px;
-  vertical-align: middle;
-  width: 100%;
+  padding: 20px;
+  max-width: 100%;
 }
 .profile{
   border-radius: 30px;
@@ -78,7 +82,7 @@
   background-color: #000;
   color: #fff;
   margin-bottom: -10px;
-  margin-top: 100px;
+ 
 }
 
 .fix{
@@ -117,10 +121,31 @@
   color: #fff;
 }
 
-body{
-  height: 100%; 
+html, body{
+  min-height: 100%; 
 }
-.im{
-  width: 50px;
-  border: solid 2px #2E9AFE;
+body{
+  margin: 0 auto;
+  background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+}
+@media (max-width: 767px){
+  #app_div{
+    width: 300px;
+  }
+  #seachform{
+    width: 300px;
+  }
+  #welcome{
+    width: 300px;
+  }
+}
+.pages-index{
+  background-image: url(http://rantsofasassystew.com/wp-content/uploads/2013/12/aeroflot_cabin_crew.jpg);
+  background-size: cover;
+  position: relative;
+  max-width: 100%;
+  height: auto;
 }
