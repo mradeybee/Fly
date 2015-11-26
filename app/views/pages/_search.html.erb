@@ -1,6 +1,5 @@
-<div class="row" align="center">
+<div class = "home_search " align="center">
   <%= form_tag(index_search_url, method: :post, id: "seachform", class: "form-inline", remote: true) do %>
-  <div class = "home_search ">
     <h2 class = "search_txt">Search Flight  <i class="fa fa-plane fa-1x"></i></h2>
     <div class="form-group">
       <%= collection_select :flight, :origin_id, Airport.all, :id, :name, {include_blank: 'From Where?'}, {class: 'form-control  boxx origin'}%>
@@ -12,11 +11,11 @@
       <%= text_field :flight, :departure_date,  :id => 'departure_date', placeholder: "Departure Date", class: 'form-control boxx date'%>
     </div>
     <%= submit_tag("Search", :name => nil, class: 'btn btn-info btn-md active boxx')%>
-  </div>
   <% end %> 
+</div>
+  
   <div id= "search_result">
     <% if @search %>
       <%= render "pages/search_result" %> 
     <% end %>
   </div>
-</div>
