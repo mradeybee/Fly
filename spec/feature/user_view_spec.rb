@@ -62,7 +62,7 @@ RSpec.feature "UserView"  do
 
     it "Search for flight with date " do
       visit "/"
-      flight= Flight.last
+      flight = Flight.first
       select flight.origin.name, from: "flight_origin_id"
       select flight.destination.name, from: "flight_destination_id"
       fill_in('departure_date', with: flight.departure_date.strftime("%Y - %m - %d"))
@@ -95,6 +95,15 @@ RSpec.feature "UserView"  do
       expect(page).to have_content "successful"
    end
 
+    it "Doesnt book without Passenger" do
+      visit "/flights"
+      sleep 2
+      first(:button, "Select").click
+      sleep 2
+      click_on 'Book Now'
+      expect(page).to have_content "You must have at least one passenger"
+   end
+
    it "Manages Bookings" do
       visit "/flights"
       sleep 2
@@ -110,9 +119,26 @@ RSpec.feature "UserView"  do
       click_on 'Manage'
       fill_in('name', with: 'Adebee')
       click_on 'Book Now'
+      click_on 'Delete'
       click_on 'Cancel Booking'
       page.driver.browser.accept_confirm
       expect(page).to have_content "Booking was successfully Canceled."
+   end
+
+   it "rejects editing without login" do
+      visit "/flights"
+      sleep 2
+      click_on "Log In"
+      click_on 'Facebook'
+      first(:button, "Select").click
+      sleep 2
+      click_link ('Add Passenger')
+      fill_in('name', with: 'Adebayo')
+      fill_in('email', with: 'mradeybee@gmail.com')
+      click_on 'Book Now'
+      click_on "Sign Out"
+      visit "/bookings/1/edit"
+      expect(page).to have_content "Welcome"
    end
 
   end
