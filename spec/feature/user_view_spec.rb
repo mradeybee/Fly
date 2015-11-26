@@ -95,5 +95,25 @@ RSpec.feature "UserView"  do
       expect(page).to have_content "successful"
    end
 
+   it "Manages Bookings" do
+      visit "/flights"
+      sleep 2
+      click_on "Log In"
+      click_on 'Facebook'
+      first(:button, "Select").click
+      sleep 2
+      click_link ('Add Passenger')
+      fill_in('name', with: 'Adebayo')
+      fill_in('email', with: 'mradeybee@gmail.com')
+      click_on 'Book Now'
+      click_on 'MOCK'
+      click_on 'Manage'
+      fill_in('name', with: 'Adebee')
+      click_on 'Book Now'
+      click_on 'Cancel Booking'
+      page.driver.browser.accept_confirm
+      expect(page).to have_content "Booking was successfully Canceled."
+   end
+
   end
 end
