@@ -35,6 +35,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'poltergeist'
   gem 'phantomjs', :require => 'phantomjs/poltergeist'
+  gem "codeclimate-test-reporter"
 end
 group :development do
   gem 'web-console', '~> 2.0'
