@@ -26,12 +26,6 @@ RSpec.describe Flight, type: :model do
     has_booking_id
   }
 
- let(:passenger_without_booking_id){
-    has_name
-    has_email
-  }
-
-
   it "Saves a valid passenger" do
     passenger.save
     expect(valid_passenger).to be_valid
