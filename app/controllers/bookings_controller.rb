@@ -26,8 +26,8 @@ class BookingsController < ApplicationController
     respond_to do |format|
       if booking_params[:passengers_attributes].nil?
         format.html { redirect_to :back,  notice: 'You must have at least one passenger'}
-      elsif @booking.save 
-        FlyMail.booking_confirmed(this_user(@booking), @booking, current_user).deliver_now!
+      elsif @booking.save
+        mail_user(@booking) 
         format.html { redirect_to booking_confirmed_path(@booking.id), notice: 'Flight Booked Successfuly.' }
       end
     end
@@ -82,13 +82,22 @@ class BookingsController < ApplicationController
     params.permit(:flight_id)
   end
 
-  def this_user(user)
-    user = Passenger.where(booking_id: user.id)
-    # binding.pry
+  def send_mail(user, booking)
+    FlyMail.booking_confirmed(user, booking, current_user).deliver_now!
+  end
+
+  def mail_user(booking)
     if current_user
-      current_user
+      send_mail(current_user.email, booking)
+      user = Passenger.where(booking_id: booking.id)
+      user.each do |x| 
+        send_mail(x.email, booking)
+      end
     else
-      user 
+      user = Passenger.where(booking_id: booking.id)
+      user.each do |x| 
+        send_mail(x.email, booking)
+      end
     end
   end   
 end
