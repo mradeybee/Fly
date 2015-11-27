@@ -87,14 +87,13 @@ class BookingsController < ApplicationController
   end
 
   def mail_user(booking)
-    if current_user
-      send_mail(current_user.email, booking)
-      user = Passenger.where(booking_id: booking.id)
+    user = Passenger.where(booking_id: booking.id)
+    if current_user  
+      send_mail(current_user.email, booking)  
       user.each do |x| 
         send_mail(x.email, booking) if x.email != current_user.email
       end
     else
-      user = Passenger.where(booking_id: booking.id)
       user.each do |x| 
         send_mail(x.email, booking)
       end
