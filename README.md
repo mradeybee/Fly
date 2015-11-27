@@ -77,7 +77,7 @@ Booking can not be done via any other payment gateway.The app assumes that booki
 
 You can also check <a href="https://fly.herokuapp.com" target="blank">the hosted version</a> of this app
 
-Contributing
+##Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/andela-aadepoju/Fly. 
 
