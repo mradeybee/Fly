@@ -42,7 +42,7 @@ RSpec.describe Flight, type: :model do
     expect(passenger_without_name).not_to be_valid
   end
   
-  it "rejects passenger withut email" do
+  it "rejects passenger without email" do
    passenger.save
     expect(passenger_without_email).not_to be_valid
   end
