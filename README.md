@@ -63,9 +63,9 @@ or
 rake
 ```
 If you need more specific tests, then specify the absolute path to the spec file:
-
+```
 bundle exec rspec spec/models/booking_spec.rb
-
+```
 If you want the tests to read more like a document then pass in these options to the rspec command:
 ```
 bundle exec rspec spec/models/booking_spec.rb -f documentation
